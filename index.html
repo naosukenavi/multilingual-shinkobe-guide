@@ -37,15 +37,10 @@ main{max-width:900px;margin:auto;padding:18px 14px 40px}.notice{background:#fff7
 <div class="card"><h3 data-t="guide3h">注意事項</h3><p data-t="guide3">運行時刻・運休・のりば変更などは、当日の公式案内も確認してください。写真は現地案内を補助するためのものです。</p></div>
 <div class="card"><h3 data-t="guide4h">困ったとき</h3><p data-t="guide4">道が分からなくなったら、いったん安全な場所で止まり、駅の案内表示や係員に確認してください。</p></div>
 </div></section>
-<section id="walking" class="panel"><h2 data-t="walkingTitle">🚶 Walking Routes</h2><div class="cards">
-<div class="card"><h3 data-t="walk0h">安全に歩くために</h3><p data-t="walk0">写真を確認するときは、道路上で立ち止まらず、安全な場所で確認してください。</p></div>
-<div class="card"><h3 data-t="walk1h">布引バス停（2・18系統）</h3></div>
-<div class="card"><h3 data-t="walk2h">布引バス停（92系統）</h3></div>
-<div class="card"><h3 data-t="walk3h">布引ハーブ園</h3></div>
-<div class="card"><h3 data-t="walk4h">布引の滝</h3></div>
-<div class="card"><h3 data-t="walk5h">北野方面</h3></div>
-<div class="card"><h3 data-t="walk6h">三宮方面</h3></div>
-</div></section>
+<section id="walking" class="panel">
+<h2 data-t="walkingTitle">🚶 Walking Routes</h2>
+<div id="walkingContent"></div>
+</section>
 <section id="bus" class="panel">
 <h2 data-t="busTitle">🚌 Bus Stops</h2><p data-t="busIntro">新神戸駅の主な3つのバスのりばです。</p>
 <div class="stop-buttons"><button type="button" data-stop="rotary" class="active" data-t="rotary">ロータリー</button><button type="button" data-stop="tunnel" data-t="tunnel">トンネル入口バス停</button><button type="button" data-stop="hotel" data-t="hotel">ホテル玄関前</button></div>
@@ -76,8 +71,115 @@ const stopText={
  ru:{rotary:'Остановки внутри кольцевой площади. Верхний уровень — междугородние автобусы, нижний — городские.',tunnel:'Остановка у входа в туннель. Отсюда отправляются автобусы к Арима-Онсэн, аутлету Санда, Минотани в районе Кита города Кобе и в другие районы Кобе.',hotel:'Остановка у входа в отель / 4-й этаж. Есть автобусы в Токусиму и к аэропорту Кансай.'},
  es:{rotary:'Paradas dentro de la rotonda. Nivel superior: líneas interurbanas. Nivel inferior: líneas urbanas.',tunnel:'Parada de autobús en la entrada del túnel. Hay autobuses hacia Arima Onsen, Sanda Premium Outlets, Minotani en el distrito de Kita de Kobe y otras zonas de Kobe.',hotel:'Entrada del hotel / parada en el 4.º piso. Hay autobuses limusina hacia Tokushima y el aeropuerto de Kansai.'}
 };
+
+const walkingData = {
+  safe: {
+    ja:{title:'安全に歩くために',text:'写真を確認するときは、道路上で立ち止まらず、安全な場所で確認してください。'},
+    en:{title:'Walk safely',text:'Do not stop in the roadway while checking photos. Move to a safe place first.'},
+    zh:{title:'安全步行',text:'查看照片时，请不要停留在道路上。请先移动到安全的地方。'},
+    ko:{title:'안전하게 걷기',text:'사진을 확인할 때 도로 위에 멈춰 서지 마세요. 먼저 안전한 곳으로 이동해 주세요.'},
+    th:{title:'เดินอย่างปลอดภัย',text:'ขณะดูภาพ โปรดอย่าหยุดอยู่บนถนน ให้ย้ายไปยังจุดที่ปลอดภัยก่อน'},
+    ru:{title:'Безопасная прогулка',text:'Не останавливайтесь на проезжей части, когда смотрите фотографии. Сначала перейдите в безопасное место.'},
+    es:{title:'Caminar con seguridad',text:'No se detenga en la calzada mientras consulta las fotos. Primero vaya a un lugar seguro.'}
+  },
+  nunobiki218: {
+    ja:{title:'布引バス停（2・18系統）',desc:'南出口から2系統・18系統「布引」バス停までの徒歩ルート。',note:'地下鉄改札には入らず、南出口から地上へ出て左へ進みます。写真を上から順に見ながら進んでください。'},
+    en:{title:'Nunobiki Bus Stop (Routes 2 & 18)',desc:'Walking route from the South Exit to the Nunobiki bus stop for Routes 2 and 18.',note:'Do not enter the subway ticket gate. Go out through the South Exit and turn left. Follow the photos in order.'},
+    zh:{title:'布引巴士站（2・18路）',desc:'从南出口步行前往2・18路布引巴士站。',note:'不要进入地铁闸机。从南出口出站后向左走，并按照片顺序前进。'},
+    ko:{title:'누노비키 버스 정류장 (2·18번)',desc:'남쪽 출구에서 2·18번 누노비키 버스 정류장까지 걷는 길입니다.',note:'지하철 개찰구로 들어가지 마세요. 남쪽 출구로 나와 왼쪽으로 이동하며 사진 순서대로 따라가세요.'},
+    th:{title:'ป้ายรถนุโนบิกิ (สาย 2 และ 18)',desc:'เส้นทางเดินจากทางออกทิศใต้ไปยังป้ายรถนุโนบิกิสาย 2 และ 18',note:'อย่าเข้าไปในประตูตรวจตั๋วรถไฟใต้ดิน ออกจากทางออกทิศใต้ เลี้ยวซ้าย และเดินตามภาพตามลำดับ'},
+    ru:{title:'Остановка Нунобики (маршруты 2 и 18)',desc:'Пешеходный маршрут от южного выхода до остановки Нунобики маршрутов 2 и 18.',note:'Не заходите через турникеты метро. Выйдите через южный выход, поверните налево и следуйте фотографиям по порядку.'},
+    es:{title:'Parada Nunobiki (rutas 2 y 18)',desc:'Ruta a pie desde la salida sur hasta la parada Nunobiki de las rutas 2 y 18.',note:'No entre por los tornos del metro. Salga por la salida sur, gire a la izquierda y siga las fotos en orden.'}
+  },
+  nunobiki92: {
+    ja:{title:'布引バス停（92系統）',desc:'92系統「布引」バス停までの徒歩ルート。',note:'2・18系統の「布引」バス停とは場所が異なります。生田川沿いを進み、坂を下った先へ向かいます。'},
+    en:{title:'Nunobiki Bus Stop (Route 92)',desc:'Walking route to the Nunobiki bus stop for Route 92.',note:'This stop is different from the Nunobiki stop for Routes 2 and 18. Follow the Ikuta River and go down the slope to the stop.'},
+    zh:{title:'布引巴士站（92路）',desc:'步行前往92路布引巴士站。',note:'这里与2・18路的布引巴士站位置不同。沿着生田川前进，再下坡前往巴士站。'},
+    ko:{title:'누노비키 버스 정류장 (92번)',desc:'92번 누노비키 버스 정류장까지 걷는 길입니다.',note:'2·18번 누노비키 정류장과 위치가 다릅니다. 이쿠타강을 따라가다가 내리막길을 내려가세요.'},
+    th:{title:'ป้ายรถนุโนบิกิ (สาย 92)',desc:'เส้นทางเดินไปยังป้ายรถนุโนบิกิสาย 92',note:'ป้ายนี้อยู่คนละที่กับป้ายนุโนบิกิสาย 2 และ 18 เดินตามแม่น้ำอิคุตะแล้วลงทางลาดไปยังป้ายรถ'},
+    ru:{title:'Остановка Нунобики (маршрут 92)',desc:'Пешеходный маршрут до остановки Нунобики маршрута 92.',note:'Эта остановка находится не там, где остановка маршрутов 2 и 18. Идите вдоль реки Икута и спуститесь по склону.'},
+    es:{title:'Parada Nunobiki (ruta 92)',desc:'Ruta a pie hasta la parada Nunobiki de la ruta 92.',note:'Esta parada está en un lugar diferente de la parada de las rutas 2 y 18. Siga el río Ikuta y baje por la pendiente.'}
+  },
+  herb: {
+    ja:{title:'布引ハーブ園',desc:'新神戸駅から布引ハーブ園・ロープウェイ山麓駅へ向かう徒歩案内。',note:'写真を上から順に見ながら、現地の案内表示に沿って進んでください。'},
+    en:{title:'Nunobiki Herb Gardens',desc:'Walking guide from Shin-Kobe Station to Nunobiki Herb Gardens / Ropeway lower station.',note:'Follow the photos in order and use the on-site guidance signs.'},
+    zh:{title:'布引香草园',desc:'从新神户站步行前往布引香草园及缆车山麓站。',note:'请按照片顺序前进，并按照现场指示牌行走。'},
+    ko:{title:'누노비키 허브 가든',desc:'신코베역에서 누노비키 허브 가든·로프웨이 산록역으로 가는 도보 안내입니다.',note:'사진 순서대로 이동하고 현장 안내 표지판을 따라가세요.'},
+    th:{title:'สวนสมุนไพรนุโนบิกิ',desc:'เส้นทางเดินจากสถานีชินโกเบไปยังสวนสมุนไพรนุโนบิกิและสถานีด้านล่างของกระเช้า',note:'เดินตามภาพตามลำดับและปฏิบัติตามป้ายแนะนำในพื้นที่'},
+    ru:{title:'Сад трав Нунобики',desc:'Пешеходный маршрут от станции Син-Кобэ к саду трав Нунобики и нижней станции канатной дороги.',note:'Следуйте фотографиям по порядку и указателям на месте.'},
+    es:{title:'Jardines de Hierbas de Nunobiki',desc:'Ruta a pie desde Shin-Kobe hasta los Jardines de Hierbas de Nunobiki y la estación inferior del teleférico.',note:'Siga las fotos en orden y las indicaciones del lugar.'}
+  },
+  falls: {
+    ja:{title:'布引の滝',desc:'新神戸駅から布引の滝へ向かう徒歩案内。',note:'1階東端のドアから外へ出て、案内表示に従って山側へ進んでください。'},
+    en:{title:'Nunobiki Falls',desc:'Walking guide from Shin-Kobe Station to Nunobiki Falls.',note:'Exit from the door at the 1F East End and follow the signs toward the mountain side.'},
+    zh:{title:'布引瀑布',desc:'从新神户站步行前往布引瀑布。',note:'从1楼东端的门出去，按照指示牌向山侧前进。'},
+    ko:{title:'누노비키 폭포',desc:'신코베역에서 누노비키 폭포로 가는 도보 안내입니다.',note:'1층 동쪽 끝 문으로 나가 산쪽 안내 표지판을 따라가세요.'},
+    th:{title:'น้ำตกนุโนบิกิ',desc:'เส้นทางเดินจากสถานีชินโกเบไปยังน้ำตกนุโนบิกิ',note:'ออกทางประตูด้านตะวันออกสุดของชั้น 1 แล้วเดินตามป้ายไปทางภูเขา'},
+    ru:{title:'Водопад Нунобики',desc:'Пешеходный маршрут от станции Син-Кобэ к водопаду Нунобики.',note:'Выйдите через дверь в восточном конце 1-го этажа и следуйте указателям в сторону гор.'},
+    es:{title:'Cascadas de Nunobiki',desc:'Ruta a pie desde Shin-Kobe hasta las cascadas de Nunobiki.',note:'Salga por la puerta del extremo este de la planta 1 y siga las señales hacia la montaña.'}
+  },
+  kitanoSannomiya: {
+    ja:{title:'北野・三宮方面',desc:'南出口から北野方面・三宮方面へ歩くルート。',note:'南出口から外へ出て右へ進みます。坂道は北野方面、平地は三宮方面です。'},
+    en:{title:'Kitano / Sannomiya Area',desc:'Walking route from the South Exit toward Kitano or Sannomiya.',note:'Exit from the South Exit and turn right. The uphill route is toward Kitano; the level route is toward Sannomiya.'},
+    zh:{title:'北野・三宫方向',desc:'从南出口步行前往北野或三宫。',note:'从南出口出站后向右走。上坡方向是北野，平坦道路方向是三宫。'},
+    ko:{title:'기타노·산노미야 방면',desc:'남쪽 출구에서 기타노 또는 산노미야로 걷는 길입니다.',note:'남쪽 출구로 나와 오른쪽으로 이동하세요. 오르막은 기타노, 평탄한 길은 산노미야 방향입니다.'},
+    th:{title:'ย่านคิตาโนะ / ซันโนมิยะ',desc:'เส้นทางเดินจากทางออกทิศใต้ไปยังคิตาโนะหรือซันโนมิยะ',note:'ออกทางทิศใต้แล้วเลี้ยวขวา ทางขึ้นเนินไปคิตาโนะ ส่วนทางราบไปซันโนมิยะ'},
+    ru:{title:'Район Китано / Санномия',desc:'Пешеходный маршрут от южного выхода в сторону Китано или Санномия.',note:'Выйдите через южный выход и поверните направо. Вверх — к Китано, по ровной дороге — к Санномия.'},
+    es:{title:'Zona de Kitano / Sannomiya',desc:'Ruta a pie desde la salida sur hacia Kitano o Sannomiya.',note:'Salga por la salida sur y gire a la derecha. La subida lleva hacia Kitano; el camino llano, hacia Sannomiya.'}
+  }
+};
+
+const walkingRoutes = [
+  {key:'nunobiki218', files:[
+    'assets/nunobiki_2_18_page1_new.png',
+    'assets/nunobiki_2_18_page2_new.png',
+    'assets/nunobiki_2_18_page3_new.png',
+    'assets/nunobiki_2_18_page4_new.png'
+  ]},
+  {key:'nunobiki92', files:[
+    'assets/nunobiki_92_page1_new.png',
+    'assets/nunobiki_92_page2_new.png',
+    'assets/nunobiki_92_page3_new.png',
+    'assets/nunobiki_92_page4_new.png',
+    'assets/nunobiki_92_page5_new.png'
+  ]},
+  {key:'herb', files:[
+    'assets/nunobiki_ropeway_guide_1.png',
+    'assets/nunobiki_ropeway_guide_2.png',
+    'assets/nunobiki_ropeway_guide_3.png',
+    'assets/nunobiki_ropeway_guide_4.png',
+    'assets/nunobiki_ropeway_guide_5.png',
+    'assets/nunobiki_ropeway_guide_6.png',
+    'assets/nunobiki_ropeway_guide_7.png'
+  ]},
+  {key:'falls', files:['assets/nunobiki_falls_guide.png']},
+  {key:'kitanoSannomiya', files:[
+    'assets/kitano_sannomiya_guide_1.png',
+    'assets/kitano_sannomiya_guide_2.png',
+    'assets/kitano_sannomiya_guide_3.png',
+    'assets/kitano_sannomiya_guide_4.png'
+  ]}
+];
+
+function renderWalking(){
+  const box=document.getElementById('walkingContent');
+  if(!box) return;
+  const t=walkingData[walkingRoutes[0].key] && (walkingData[walkingRoutes[0].key][lang] || walkingData[walkingRoutes[0].key].en);
+  const safe=walkingData.safe[lang] || walkingData.safe.en;
+  let html='<div class="walking-note"><strong>'+safe.title+'</strong><br>'+safe.text+'</div>';
+  walkingRoutes.forEach(route=>{
+    const d=walkingData[route.key][lang] || walkingData[route.key].en;
+    html+='<div class="walking-route"><h3>'+d.title+'</h3><p>'+d.desc+'</p><div class="walking-photos">';
+    route.files.forEach((src,i)=>{
+      html+='<figure><img src="'+src+'" alt="'+d.title+' - '+(i+1)+'"><figcaption>'+d.title+' / '+(i+1)+'</figcaption></figure>';
+    });
+    html+='</div><p class="small"><strong>'+d.note+'</strong></p></div>';
+  });
+  box.innerHTML=html;
+}
+
 let lang='ja',stop='rotary';
-function applyLang(){const t=text[lang]||text.en; document.querySelectorAll('[data-t]').forEach(el=>{const k=el.dataset.t;if(t[k]!==undefined)el.textContent=t[k]});document.documentElement.lang=lang;document.querySelectorAll('.langs button').forEach(b=>b.classList.toggle('active',b.dataset.lang===lang));renderStop();}
+function applyLang(){const t=text[lang]||text.en; document.querySelectorAll('[data-t]').forEach(el=>{const k=el.dataset.t;if(t[k]!==undefined)el.textContent=t[k]});document.documentElement.lang=lang;document.querySelectorAll('.langs button').forEach(b=>b.classList.toggle('active',b.dataset.lang===lang));renderStop();renderWalking();}
 function renderStop(){const d=stopText[lang]||stopText.en;const box=document.getElementById('stopContent');const img=images[stop][lang];let html='<div class="card"><h3>'+((text[lang]||text.en)[stop])+'</h3><p>'+d[stop]+'</p>';
 if(img){html+='<div class="imagebox"><img src="'+img+'" alt="'+((text[lang]||text.en)[stop])+'"><div class="caption">Shin-Kobe Bus Guide by NaoMi</div></div>';}else{html+='<div class="ko-note">'+(lang==='ko'?'<strong>사진準備中</strong><br>韓国語版の画像は後から追加できます。':'Image not available in this language yet.')+'</div>';}html+='</div>';box.innerHTML=html;document.querySelectorAll('[data-stop]').forEach(b=>b.classList.toggle('active',b.dataset.stop===stop));}
 document.addEventListener('click',e=>{
@@ -96,5 +198,6 @@ document.addEventListener('click',e=>{
 });
 applyLang();
 document.getElementById('bus').classList.add('active');
+renderWalking();
 </script>
 </body></html>
