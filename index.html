@@ -1,73 +1,89 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Shin-Kobe Guide</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shin-Kobe Station Multilingual Bus Guide</title>
+<style>
+:root{--blue:#1769aa;--green:#3d8b4a;--orange:#e88916;--ink:#222;--soft:#f5f8fb}
+*{box-sizing:border-box}body{margin:0;font-family:Arial,"Noto Sans",sans-serif;color:var(--ink);background:#fff;line-height:1.55}
+header{padding:24px 16px 16px;text-align:center;border-bottom:1px solid #ddd}h1{margin:0 0 6px;font-size:clamp(25px,6vw,42px)}.sub{margin:0;color:#555}
+.langs{display:flex;flex-wrap:wrap;gap:7px;justify-content:center;margin-top:16px}.langs button{border:1px solid #aaa;background:#fff;border-radius:8px;padding:8px 11px;cursor:pointer;font-weight:600}.langs button.active{background:#1769aa;color:#fff;border-color:#1769aa}
+main{max-width:900px;margin:auto;padding:18px 14px 40px}.notice{background:#fff7e8;border-left:5px solid var(--orange);padding:12px 14px;margin:10px 0 18px;border-radius:6px}
+.menu{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:18px 0}.menu button{min-height:82px;border:2px solid #ddd;border-radius:14px;background:#fff;font-size:18px;font-weight:700;cursor:pointer;box-shadow:0 2px 7px #00000012}.menu button:hover{transform:translateY(-1px)}
+.panel{display:none}.panel.active{display:block}.panel h2{font-size:26px;margin:12px 0}.panel p{margin:8px 0}.cards{display:grid;gap:12px}.card{border:1px solid #ddd;border-radius:12px;padding:15px;background:var(--soft)}.card h3{margin:0 0 7px}.stop-buttons{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}.stop-buttons button{padding:10px 13px;border-radius:9px;border:1px solid var(--blue);background:#fff;color:#145788;font-weight:700;cursor:pointer}.stop-buttons button.active{background:var(--blue);color:#fff}
+.imagebox{text-align:center;margin-top:14px}.imagebox img{max-width:100%;height:auto;border:1px solid #ddd;border-radius:8px}.caption{font-size:14px;color:#666;margin-top:6px}.ko-note{padding:12px;border:1px dashed #999;border-radius:8px;background:#fff}
+.small{font-size:14px;color:#666}.back{margin-top:18px;border:0;background:#eee;border-radius:8px;padding:9px 12px;cursor:pointer}footer{text-align:center;padding:18px;color:#666;border-top:1px solid #ddd;font-size:13px}
+@media(max-width:650px){.menu{grid-template-columns:1fr}.menu button{min-height:70px}}
+</style>
 </head>
-
 <body>
-
-  <h1>Shin-Kobe Guide</h1>
-
-  <p>Language / 言語</p>
-
-  <button onclick="changeLanguage('ja')">🇯🇵 日本語</button>
-  <button onclick="changeLanguage('en')">🇬🇧 English</button>
-  <button onclick="changeLanguage('zh')">🇹🇼 中文</button>
-  <button onclick="changeLanguage('ko')">🇰🇷 한국어</button>
-  <button onclick="changeLanguage('th')">🇹🇭 ไทย</button>
-  <button onclick="changeLanguage('ru')">🇷🇺 Русский</button>
-  <button onclick="changeLanguage('es')">🇪🇸 Español</button>
-
-  <hr>
-
-  <h2 id="title">新神戸駅案内</h2>
-
-  <p id="message">
-    新神戸駅のバス乗り場をご案内します。
-  </p>
-
-  <script>
-    const translations = {
-      ja: {
-        title: "新神戸駅案内",
-        message: "新神戸駅のバス乗り場をご案内します。"
-      },
-      en: {
-        title: "Shin-Kobe Station Guide",
-        message: "This guide helps you find the bus stops at Shin-Kobe Station."
-      },
-      zh: {
-        title: "新神戶站指南",
-        message: "本指南介紹新神戶站的巴士站位置。"
-      },
-      ko: {
-        title: "신코베역 안내",
-        message: "신코베역의 버스 정류장을 안내합니다."
-      },
-      th: {
-        title: "คู่มือสถานีชินโกเบ",
-        message: "คู่มือนี้จะแนะนำป้ายรถบัสที่สถานีชินโกเบ"
-      },
-      ru: {
-        title: "Путеводитель по станции Син-Кобе",
-        message: "Этот гид поможет найти автобусные остановки на станции Син-Кобе."
-      },
-      es: {
-        title: "Guía de la estación Shin-Kobe",
-        message: "Esta guía le ayudará a encontrar las paradas de autobús en Shin-Kobe."
-      }
-    };
-
-    function changeLanguage(language) {
-      document.getElementById("title").textContent =
-        translations[language].title;
-
-      document.getElementById("message").textContent =
-        translations[language].message;
-    }
-  </script>
-
-</body>
-</html>
+<header>
+<h1 data-t="title">Shin-Kobe Station Guide</h1><p class="sub" data-t="subtitle">外国人旅行者向け・新神戸駅バス案内</p>
+<div class="langs">
+<button data-lang="ja">🇯🇵 日本語</button><button data-lang="en">🇬🇧 English</button><button data-lang="zh">🇹🇼 中文</button><button data-lang="ko">🇰🇷 한국어</button><button data-lang="th">🇹🇭 ไทย</button><button data-lang="ru">🇷🇺 Русский</button><button data-lang="es">🇪🇸 Español</button>
+</div></header>
+<main>
+<div class="notice" data-t="notice">写真と現地の表示を見比べながら、目的のバスのりばを確認してください。</div>
+<div class="menu">
+<button data-panel="guide">⑤ 📖 <span data-t="guideBtn">Guide / ご案内</span></button>
+<button data-panel="exit">⑥ 🚪 <span data-t="exitBtn">Exit & Nearby Access</span></button>
+<button data-panel="walking">② 🚶 <span data-t="walkingBtn">Walking Routes</span></button>
+<button data-panel="bus">① 🚌 <span data-t="busBtn">Bus Stops</span></button>
+</div>
+<section id="guide" class="panel">
+<h2 data-t="guideTitle">📖 Guide / ご案内</h2><div class="cards">
+<div class="card"><h3 data-t="guide1h">このアプリについて</h3><p data-t="guide1">新神戸駅には複数のバスのりばがあります。このアプリは、行き先から迷わずのりばを確認するための案内です。</p></div>
+<div class="card"><h3 data-t="guide2h">写真の見方</h3><p data-t="guide2">実際の駅で見える案内表示と、アプリの写真を照らし合わせて進んでください。ロータリー・トンネル入口・ホテル玄関前で行き方が分かれます。</p></div>
+<div class="card"><h3 data-t="guide3h">注意事項</h3><p data-t="guide3">運行時刻・運休・のりば変更などは、当日の公式案内も確認してください。写真は現地案内を補助するためのものです。</p></div>
+</div></section>
+<section id="exit" class="panel"><h2 data-t="exitTitle">🚪 Exit & Nearby Access</h2><div class="cards">
+<div class="card"><h3 data-t="exit1h">駅から出る</h3><p data-t="exit1">新神戸駅の南側・三宮方面へ向かう出口を確認してください。大きな道路を横断するときは信号を利用してください。</p></div>
+<div class="card"><h3 data-t="exit2h">周辺アクセス</h3><p data-t="exit2">三宮・北野・布引方面など、目的地によって駅からのルートが変わります。必要な場所を選んで進んでください。</p></div>
+<div class="card"><h3 data-t="exit3h">困ったとき</h3><p data-t="exit3">道が分からなくなったら、いったん安全な場所で止まり、駅の案内表示や係員に確認してください。</p></div>
+</div></section>
+<section id="walking" class="panel"><h2 data-t="walkingTitle">🚶 Walking Routes</h2><div class="cards">
+<div class="card"><h3 data-t="walk1h">布引バス停（2・18系統）</h3><p data-t="walk1">新神戸駅から布引方面へ歩くルートを案内します。道路を渡る場所では、必ず横断歩道・信号を利用してください。</p></div>
+<div class="card"><h3 data-t="walk2h">ホテル方面</h3><p data-t="walk2">ホテル方面は2階へ上がり、建物外の西側通路から渡り廊下を進みます。4階バスのりばへ向かう場合は「Hotel Entrance」を確認してください。</p></div>
+<div class="card"><h3 data-t="walk3h">安全に歩くために</h3><p data-t="walk3">写真を確認するときは、道路上で立ち止まらず、安全な場所で確認してください。</p></div>
+</div></section>
+<section id="bus" class="panel">
+<h2 data-t="busTitle">🚌 Bus Stops</h2><p data-t="busIntro">新神戸駅の主な3つのバスのりばです。</p>
+<div class="stop-buttons"><button data-stop="rotary" class="active" data-t="rotary">Rotary</button><button data-stop="tunnel" data-t="tunnel">Tunnel Entrance</button><button data-stop="hotel" data-t="hotel">Hotel Entrance</button></div>
+<div id="stopContent"></div>
+</section>
+</main><footer>Shin-Kobe Bus Guide by NaoMi</footer>
+<script>
+const images={
+ rotary:{en:'assets/rotary-en.png',zh:'assets/rotary-zh.png',es:'assets/rotary-es.png',ja:'assets/rotary-ja.png',ru:'assets/rotary-ru.png',th:'assets/rotary-th.png'},
+ tunnel:{en:'assets/tunnel-en.png',zh:'assets/tunnel-zh.png',es:'assets/tunnel-es.png',ja:'assets/tunnel-ja.png',ru:'assets/tunnel-ru.png',th:'assets/tunnel-th.png'},
+ hotel:{en:'assets/hotel-en.png',zh:'assets/hotel-zh.png',es:'assets/hotel-es.png',ja:'assets/hotel-ja.png',ru:'assets/hotel-ru.png',th:'assets/hotel-th.png'}
+};
+const text={
+ ja:{title:'Shin-Kobe Station Guide',subtitle:'外国人旅行者向け・新神戸駅バス案内',notice:'写真と現地の表示を見比べながら、目的のバスのりばを確認してください。',guideBtn:'Guide / ご案内',exitBtn:'Exit & Nearby Access',walkingBtn:'Walking Routes',busBtn:'Bus Stops',guideTitle:'📖 Guide / ご案内',guide1h:'このアプリについて',guide1:'新神戸駅には複数のバスのりばがあります。このアプリは、行き先から迷わずのりばを確認するための案内です。',guide2h:'写真の見方',guide2:'実際の駅で見える案内表示と、アプリの写真を照らし合わせて進んでください。ロータリー・トンネル入口・ホテル玄関前で行き方が分かれます。',guide3h:'注意事項',guide3:'運行時刻・運休・のりば変更などは、当日の公式案内も確認してください。写真は現地案内を補助するためのものです。',exitTitle:'🚪 Exit & Nearby Access',exit1h:'駅から出る',exit1:'新神戸駅の南側・三宮方面へ向かう出口を確認してください。大きな道路を横断するときは信号を利用してください。',exit2h:'周辺アクセス',exit2:'三宮・北野・布引方面など、目的地によって駅からのルートが変わります。必要な場所を選んで進んでください。',exit3h:'困ったとき',exit3:'道が分からなくなったら、いったん安全な場所で止まり、駅の案内表示や係員に確認してください。',walkingTitle:'🚶 Walking Routes',walk1h:'布引バス停（2・18系統）',walk1:'新神戸駅から布引方面へ歩くルートを案内します。道路を渡る場所では、必ず横断歩道・信号を利用してください。',walk2h:'ホテル方面',walk2:'ホテル方面は2階へ上がり、建物外の西側通路から渡り廊下を進みます。4階バスのりばへ向かう場合は「Hotel Entrance」を確認してください。',walk3h:'安全に歩くために',walk3:'写真を確認するときは、道路上で立ち止まらず、安全な場所で確認してください。',busTitle:'🚌 Bus Stops',busIntro:'新神戸駅の主な3つのバスのりばです。',rotary:'Rotary',tunnel:'Tunnel Entrance',hotel:'Hotel Entrance'},
+ en:{title:'Shin-Kobe Station Guide',subtitle:'A multilingual bus guide for visitors',notice:'Use the photos together with the signs you see at the station.',guideBtn:'Guide / How to use',exitBtn:'Exit & Nearby Access',walkingBtn:'Walking Routes',busBtn:'Bus Stops',guideTitle:'📖 Guide / How to use',guide1h:'About this guide',guide1:'Shin-Kobe Station has several bus stops. This guide helps you find the correct stop from your destination.',guide2h:'How to use the photos',guide2:'Compare the station signs with the photos as you walk. The routes differ at the Rotary, Tunnel Entrance, and Hotel Entrance.',guide3h:'Important',guide3:'Check official information on the day for schedules, service changes, or stop changes. Photos are a navigation aid.',exitTitle:'🚪 Exit & Nearby Access',exit1h:'Leaving the station',exit1:'Check the exit toward the south side and Sannomiya. Use traffic signals when crossing large roads.',exit2h:'Nearby access',exit2:'Routes to Sannomiya, Kitano, Nunobiki and other areas differ. Choose the route for your destination.',exit3h:'If you get lost',exit3:'Stop in a safe place and check station signs or ask station staff for help.',walkingTitle:'🚶 Walking Routes',walk1h:'Nunobiki Bus Stop (Routes 2 & 18)',walk1:'This section guides you on foot from Shin-Kobe Station toward Nunobiki. Use crosswalks and traffic signals.',walk2h:'Hotel direction',walk2:'For the hotels, go to the 2nd floor and continue west along the outside corridor and skywalk. For the 4th-floor bus stop, see “Hotel Entrance”.',walk3h:'Walk safely',walk3:'Do not stop in the roadway while checking photos. Move to a safe place first.',busTitle:'🚌 Bus Stops',busIntro:'The three main bus-stop areas at Shin-Kobe Station.',rotary:'Rotary',tunnel:'Tunnel Entrance',hotel:'Hotel Entrance'},
+ zh:{title:'新神户站指南',subtitle:'给外国游客的新神户站巴士指南',notice:'请把照片与车站现场的指示牌对照确认。'},
+ ko:{title:'신코베역 안내',subtitle:'외국인 여행객을 위한 신코베역 버스 안내',notice:'사진과 역의 안내 표지판을 함께 확인해 주세요。'},
+ th:{title:'คู่มือสถานีชินโกเบ',subtitle:'คู่มือรถบัสสำหรับนักท่องเที่ยวต่างชาติ',notice:'โปรดเปรียบเทียบภาพกับป้ายจริงภายในสถานี'},
+ ru:{title:'Путеводитель по станции Син-Кобэ',subtitle:'Автобусный гид для иностранных посетителей',notice:'Сравнивайте фотографии с указателями на станции.'},
+ es:{title:'Guía de la estación Shin-Kobe',subtitle:'Guía de autobuses para visitantes extranjeros',notice:'Compare las fotos con las señales de la estación.'}
+};
+const stopText={
+ ja:{rotary:'ロータリー内のバスのりば。上段は広域系、下段は市内系です。',tunnel:'トンネル入口バス停。徳島・関西空港方面などのバスがあります。',hotel:'ホテル玄関前・4階バスのりば。徳島・関西空港方面のリムジンバスがあります。'},
+ en:{rotary:'Bus stops within the Rotary. Upper level: long-distance lines. Lower level: city lines.',tunnel:'Tunnel Entrance bus stop. Buses include services toward Tokushima and Kansai Airport.',hotel:'Hotel Entrance / 4th-floor bus stop. Limousine buses serve Tokushima and Kansai Airport.'},
+ zh:{rotary:'圓環內的公車站。上層為廣域路線，下層為市區路線。',tunnel:'隧道入口公車站。可搭乘前往德島、關西機場等方向的巴士。',hotel:'飯店入口／4樓公車站。可搭乘前往德島、關西機場方向的機場巴士。'},
+ ko:{rotary:'로터리 안의 버스 정류장입니다. 위쪽은 장거리 노선, 아래쪽은 시내 노선입니다.',tunnel:'터널 입구 버스 정류장입니다. 도쿠시마·간사이공항 방면 버스가 있습니다.',hotel:'호텔 입구·4층 버스 정류장입니다. 도쿠시마·간사이공항 방면 리무진버스가 있습니다.'},
+ th:{rotary:'ป้ายรถภายในวงเวียน ชั้นบนเป็นรถระยะไกล ชั้นล่างเป็นรถในเมือง',tunnel:'ป้ายรถทางเข้าทางอุโมงค์ มีรถไปโทคุชิมะและสนามบินคันไซ',hotel:'ป้ายรถหน้าโรงแรม/ชั้น 4 มีรถลีมูซีนไปโทคุชิมะและสนามบินคันไซ'},
+ ru:{rotary:'Остановки внутри кольцевой площади. Верхний уровень — междугородние автобусы, нижний — городские.',tunnel:'Остановка у входа в туннель. Есть автобусы в Токусиму и к аэропорту Кансай.',hotel:'Остановка у входа в отель / 4-й этаж. Есть автобусы в Токусиму и к аэропорту Кансай.'},
+ es:{rotary:'Paradas dentro de la rotonda. Nivel superior: líneas interurbanas. Nivel inferior: líneas urbanas.',tunnel:'Parada de autobús en la entrada del túnel. Hay servicios hacia Tokushima y el aeropuerto de Kansai.',hotel:'Entrada del hotel / parada en el 4.º piso. Hay autobuses limusina hacia Tokushima y el aeropuerto de Kansai.'}
+};
+let lang='ja',stop='rotary';
+function applyLang(){const t=text[lang]||text.en; document.querySelectorAll('[data-t]').forEach(el=>{const k=el.dataset.t;if(t[k]!==undefined)el.textContent=t[k]});document.documentElement.lang=lang;document.querySelectorAll('.langs button').forEach(b=>b.classList.toggle('active',b.dataset.lang===lang));renderStop();}
+function renderStop(){const d=stopText[lang]||stopText.en;const box=document.getElementById('stopContent');const img=images[stop][lang];let html='<div class="card"><h3>'+((text[lang]||text.en)[stop])+'</h3><p>'+d[stop]+'</p>';
+if(img){html+='<div class="imagebox"><img src="'+img+'" alt="'+((text[lang]||text.en)[stop])+'"><div class="caption">Shin-Kobe Bus Guide by NaoMi</div></div>';}else{html+='<div class="ko-note">'+(lang==='ko'?'<strong>사진準備中</strong><br>韓国語版の画像は後から追加できます。':'Image not available in this language yet.')+'</div>';}html+='</div>';box.innerHTML=html;document.querySelectorAll('[data-stop]').forEach(b=>b.classList.toggle('active',b.dataset.stop===stop));}
+document.querySelectorAll('[data-lang]').forEach(b=>b.onclick=()=>{lang=b.dataset.lang;applyLang()});
+document.querySelectorAll('.menu button').forEach(b=>b.onclick=()=>{document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));document.getElementById(b.dataset.panel).classList.add('active');if(b.dataset.panel==='bus')renderStop();});
+document.querySelectorAll('[data-stop]').forEach(b=>b.onclick=()=>{stop=b.dataset.stop;renderStop()});
+applyLang();document.getElementById('bus').classList.add('active');
+</script>
+</body></html>
