@@ -27,7 +27,6 @@ main{max-width:900px;margin:auto;padding:18px 14px 40px}.notice{background:#fff7
 <div class="notice" data-t="notice">写真と現地の表示を見比べながら、目的のバスのりばを確認してください。</div>
 <div class="menu">
 <button type="button" data-panel="guide">📖 <span data-t="guideBtn">Guide / ご案内</span></button>
-<button type="button" data-panel="exit">🚪 <span data-t="exitBtn">Exit & Nearby Access</span></button>
 <button type="button" data-panel="walking">🚶 <span data-t="walkingBtn">Walking Routes</span></button>
 <button type="button" data-panel="bus">🚌 <span data-t="busBtn">Bus Stops</span></button>
 </div>
@@ -36,16 +35,16 @@ main{max-width:900px;margin:auto;padding:18px 14px 40px}.notice{background:#fff7
 <div class="card"><h3 data-t="guide1h">このアプリについて</h3><p data-t="guide1">新神戸駅には複数のバスのりばがあります。このアプリは、行き先から迷わずのりばを確認するための案内です。</p></div>
 <div class="card"><h3 data-t="guide2h">写真の見方</h3><p data-t="guide2">実際の駅で見える案内表示と、アプリの写真を照らし合わせて進んでください。ロータリー・トンネル入口・ホテル玄関前で行き方が分かれます。</p></div>
 <div class="card"><h3 data-t="guide3h">注意事項</h3><p data-t="guide3">運行時刻・運休・のりば変更などは、当日の公式案内も確認してください。写真は現地案内を補助するためのものです。</p></div>
-</div></section>
-<section id="exit" class="panel"><h2 data-t="exitTitle">🚪 Exit & Nearby Access</h2><div class="cards">
-<div class="card"><h3 data-t="exit1h">駅から出る</h3><p data-t="exit1">新神戸駅の南側・三宮方面へ向かう出口を確認してください。大きな道路を横断するときは信号を利用してください。</p></div>
-<div class="card"><h3 data-t="exit2h">周辺アクセス</h3><p data-t="exit2">三宮・北野・布引方面など、目的地によって駅からのルートが変わります。必要な場所を選んで進んでください。</p></div>
-<div class="card"><h3 data-t="exit3h">困ったとき</h3><p data-t="exit3">道が分からなくなったら、いったん安全な場所で止まり、駅の案内表示や係員に確認してください。</p></div>
+<div class="card"><h3 data-t="guide4h">困ったとき</h3><p data-t="guide4">道が分からなくなったら、いったん安全な場所で止まり、駅の案内表示や係員に確認してください。</p></div>
 </div></section>
 <section id="walking" class="panel"><h2 data-t="walkingTitle">🚶 Walking Routes</h2><div class="cards">
-<div class="card"><h3 data-t="walk1h">布引バス停（2・18系統）</h3><p data-t="walk1">新神戸駅から布引方面へ歩くルートを案内します。道路を渡る場所では、必ず横断歩道・信号を利用してください。</p></div>
-<div class="card"><h3 data-t="walk2h">ホテル方面</h3><p data-t="walk2">ホテル方面は2階へ上がり、建物外の西側通路から渡り廊下を進みます。4階バスのりばへ向かう場合は「Hotel Entrance」を確認してください。</p></div>
-<div class="card"><h3 data-t="walk3h">安全に歩くために</h3><p data-t="walk3">写真を確認するときは、道路上で立ち止まらず、安全な場所で確認してください。</p></div>
+<div class="card"><h3 data-t="walk0h">安全に歩くために</h3><p data-t="walk0">写真を確認するときは、道路上で立ち止まらず、安全な場所で確認してください。</p></div>
+<div class="card"><h3 data-t="walk1h">布引バス停（2・18系統）</h3></div>
+<div class="card"><h3 data-t="walk2h">布引バス停（92系統）</h3></div>
+<div class="card"><h3 data-t="walk3h">布引ハーブ園</h3></div>
+<div class="card"><h3 data-t="walk4h">布引の滝</h3></div>
+<div class="card"><h3 data-t="walk5h">北野方面</h3></div>
+<div class="card"><h3 data-t="walk6h">三宮方面</h3></div>
 </div></section>
 <section id="bus" class="panel">
 <h2 data-t="busTitle">🚌 Bus Stops</h2><p data-t="busIntro">新神戸駅の主な3つのバスのりばです。</p>
@@ -60,8 +59,8 @@ const images={
  hotel:{en:'assets/hotel-en.png',zh:'assets/hotel-zh.png',es:'assets/hotel-es.png',ja:'assets/hotel-ja.png',ru:'assets/hotel-ru.png',th:'assets/hotel-th.png'}
 };
 const text={
- ja:{title:'Shin-Kobe Station Guide',subtitle:'外国人旅行者向け・新神戸駅バス案内',notice:'写真と現地の表示を見比べながら、目的のバスのりばを確認してください。',guideBtn:'Guide / ご案内',exitBtn:'Exit & Nearby Access',walkingBtn:'Walking Routes',busBtn:'Bus Stops',guideTitle:'📖 Guide / ご案内',guide1h:'このアプリについて',guide1:'新神戸駅には複数のバスのりばがあります。このアプリは、行き先から迷わずのりばを確認するための案内です。',guide2h:'写真の見方',guide2:'実際の駅で見える案内表示と、アプリの写真を照らし合わせて進んでください。ロータリー・トンネル入口・ホテル玄関前で行き方が分かれます。',guide3h:'注意事項',guide3:'運行時刻・運休・のりば変更などは、当日の公式案内も確認してください。写真は現地案内を補助するためのものです。',exitTitle:'🚪 Exit & Nearby Access',exit1h:'駅から出る',exit1:'新神戸駅の南側・三宮方面へ向かう出口を確認してください。大きな道路を横断するときは信号を利用してください。',exit2h:'周辺アクセス',exit2:'三宮・北野・布引方面など、目的地によって駅からのルートが変わります。必要な場所を選んで進んでください。',exit3h:'困ったとき',exit3:'道が分からなくなったら、いったん安全な場所で止まり、駅の案内表示や係員に確認してください。',walkingTitle:'🚶 Walking Routes',walk1h:'布引バス停（2・18系統）',walk1:'新神戸駅から布引方面へ歩くルートを案内します。道路を渡る場所では、必ず横断歩道・信号を利用してください。',walk2h:'ホテル方面',walk2:'ホテル方面は2階へ上がり、建物外の西側通路から渡り廊下を進みます。4階バスのりばへ向かう場合は「Hotel Entrance」を確認してください。',walk3h:'安全に歩くために',walk3:'写真を確認するときは、道路上で立ち止まらず、安全な場所で確認してください。',busTitle:'🚌 Bus Stops',busIntro:'新神戸駅の主な3つのバスのりばです。',rotary:'ロータリー',tunnel:'トンネル入口バス停',hotel:'ホテル玄関前'},
- en:{title:'Shin-Kobe Station Guide',subtitle:'A multilingual bus guide for visitors',notice:'Use the photos together with the signs you see at the station.',guideBtn:'Guide / How to use',exitBtn:'Exit & Nearby Access',walkingBtn:'Walking Routes',busBtn:'Bus Stops',guideTitle:'📖 Guide / How to use',guide1h:'About this guide',guide1:'Shin-Kobe Station has several bus stops. This guide helps you find the correct stop from your destination.',guide2h:'How to use the photos',guide2:'Compare the station signs with the photos as you walk. The routes differ at the Rotary, Tunnel Entrance, and Hotel Entrance.',guide3h:'Important',guide3:'Check official information on the day for schedules, service changes, or stop changes. Photos are a navigation aid.',exitTitle:'🚪 Exit & Nearby Access',exit1h:'Leaving the station',exit1:'Check the exit toward the south side and Sannomiya. Use traffic signals when crossing large roads.',exit2h:'Nearby access',exit2:'Routes to Sannomiya, Kitano, Nunobiki and other areas differ. Choose the route for your destination.',exit3h:'If you get lost',exit3:'Stop in a safe place and check station signs or ask station staff for help.',walkingTitle:'🚶 Walking Routes',walk1h:'Nunobiki Bus Stop (Routes 2 & 18)',walk1:'This section guides you on foot from Shin-Kobe Station toward Nunobiki. Use crosswalks and traffic signals.',walk2h:'Hotel direction',walk2:'For the hotels, go to the 2nd floor and continue west along the outside corridor and skywalk. For the 4th-floor bus stop, see “Hotel Entrance”.',walk3h:'Walk safely',walk3:'Do not stop in the roadway while checking photos. Move to a safe place first.',busTitle:'🚌 Bus Stops',busIntro:'The three main bus-stop areas at Shin-Kobe Station.',rotary:'Rotary',tunnel:'Tunnel Entrance',hotel:'Hotel Entrance'},
+ ja:{title:'Shin-Kobe Station Guide',subtitle:'外国人旅行者向け・新神戸駅バス案内',notice:'写真と現地の表示を見比べながら、目的のバスのりばを確認してください。',guideBtn:'Guide / ご案内',walkingBtn:'Walking Routes',busBtn:'Bus Stops',guideTitle:'📖 Guide / ご案内',guide1h:'このアプリについて',guide1:'新神戸駅には複数のバスのりばがあります。このアプリは、行き先から迷わずのりばを確認するための案内です。',guide2h:'写真の見方',guide2:'実際の駅で見える案内表示と、アプリの写真を照らし合わせて進んでください。ロータリー・トンネル入口・ホテル玄関前で行き方が分かれます。',guide3h:'注意事項',guide3:'運行時刻・運休・のりば変更などは、当日の公式案内も確認してください。写真は現地案内を補助するためのものです。',guide4h:'困ったとき',guide4:'道が分からなくなったら、いったん安全な場所で止まり、駅の案内表示や係員に確認してください。',walkingTitle:'🚶 Walking Routes',walk0h:'安全に歩くために',walk0:'写真を確認するときは、道路上で立ち止まらず、安全な場所で確認してください。',walk1h:'布引バス停（2・18系統）',walk2h:'布引バス停（92系統）',walk3h:'布引ハーブ園',walk4h:'布引の滝',walk5h:'北野方面',walk6h:'三宮方面',busTitle:'🚌 Bus Stops',busIntro:'新神戸駅の主な3つのバスのりばです。',rotary:'ロータリー',tunnel:'トンネル入口バス停',hotel:'ホテル玄関前'},
+ en:{title:'Shin-Kobe Station Guide',subtitle:'A multilingual bus guide for visitors',notice:'Use the photos together with the signs you see at the station.',guideBtn:'Guide / How to use',walkingBtn:'Walking Routes',busBtn:'Bus Stops',guideTitle:'📖 Guide / How to use',guide1h:'About this guide',guide1:'Shin-Kobe Station has several bus stops. This guide helps you find the correct stop from your destination.',guide2h:'How to use the photos',guide2:'Compare the station signs with the photos as you walk. The routes differ at the Rotary, Tunnel Entrance, and Hotel Entrance.',guide3h:'Important',guide3:'Check official information on the day for schedules, service changes, or stop changes. Photos are a navigation aid.',guide4h:'If you get lost',guide4:'Stop in a safe place and check station signs or ask station staff for help.',walkingTitle:'🚶 Walking Routes',walk0h:'Walk safely',walk0:'Do not stop in the roadway while checking photos. Move to a safe place first.',walk1h:'Nunobiki Bus Stop (Routes 2 & 18)',walk2h:'Nunobiki Bus Stop (Route 92)',walk3h:'Nunobiki Herb Gardens',walk4h:'Nunobiki Falls',walk5h:'Kitano Area',walk6h:'Sannomiya Area',busTitle:'🚌 Bus Stops',busIntro:'The three main bus-stop areas at Shin-Kobe Station.',rotary:'Rotary',tunnel:'Tunnel Entrance',hotel:'Hotel Entrance'},
  zh:{title:'新神户站指南',subtitle:'给外国游客的新神户站巴士指南',notice:'请把照片与车站现场的指示牌对照确认。',rotary:'環形廣場巴士站',tunnel:'隧道入口巴士站',hotel:'飯店入口'},
  ko:{title:'신코베역 안내',subtitle:'외국인 여행객을 위한 신코베역 버스 안내',notice:'사진과 역의 안내 표지판을 함께 확인해 주세요。',rotary:'로터리',tunnel:'터널 입구 버스 정류장',hotel:'호텔 입구'},
  th:{title:'คู่มือสถานีชินโกเบ',subtitle:'คู่มือรถบัสสำหรับนักท่องเที่ยวต่างชาติ',notice:'โปรดเปรียบเทียบภาพกับป้ายจริงภายในสถานี',rotary:'ป้ายรถบริเวณวงเวียน',tunnel:'ป้ายรถทางเข้าทางอุโมงค์',hotel:'หน้าโรงแรม'},
