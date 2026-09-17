@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shin-Kobe Guide</title>
+</head>
+
+<body>
+
+  <h1>Shin-Kobe Guide</h1>
+
+  <p>Language / 言語</p>
+
+  <button onclick="changeLanguage('ja')">🇯🇵 日本語</button>
+  <button onclick="changeLanguage('en')">🇬🇧 English</button>
+  <button onclick="changeLanguage('zh')">🇹🇼 中文</button>
+  <button onclick="changeLanguage('ko')">🇰🇷 한국어</button>
+  <button onclick="changeLanguage('th')">🇹🇭 ไทย</button>
+  <button onclick="changeLanguage('ru')">🇷🇺 Русский</button>
+  <button onclick="changeLanguage('es')">🇪🇸 Español</button>
+
+  <hr>
+
+  <h2 id="title">新神戸駅案内</h2>
+
+  <p id="message">
+    新神戸駅のバス乗り場をご案内します。
+  </p>
+
+  <script>
+    const translations = {
+      ja: {
+        title: "新神戸駅案内",
+        message: "新神戸駅のバス乗り場をご案内します。"
+      },
+      en: {
+        title: "Shin-Kobe Station Guide",
+        message: "This guide helps you find the bus stops at Shin-Kobe Station."
+      },
+      zh: {
+        title: "新神戶站指南",
+        message: "本指南介紹新神戶站的巴士站位置。"
+      },
+      ko: {
+        title: "신코베역 안내",
+        message: "신코베역의 버스 정류장을 안내합니다."
+      },
+      th: {
+        title: "คู่มือสถานีชินโกเบ",
+        message: "คู่มือนี้จะแนะนำป้ายรถบัสที่สถานีชินโกเบ"
+      },
+      ru: {
+        title: "Путеводитель по станции Син-Кобе",
+        message: "Этот гид поможет найти автобусные остановки на станции Син-Кобе."
+      },
+      es: {
+        title: "Guía de la estación Shin-Kobe",
+        message: "Esta guía le ayudará a encontrar las paradas de autobús en Shin-Kobe."
+      }
+    };
+
+    function changeLanguage(language) {
+      document.getElementById("title").textContent =
+        translations[language].title;
+
+      document.getElementById("message").textContent =
+        translations[language].message;
+    }
+  </script>
+
+</body>
+</html>
