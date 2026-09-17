@@ -70,12 +70,12 @@ const text={
 };
 const stopText={
  ja:{rotary:'ロータリー内のバスのりば。上段は広域系、下段は市内系です。',tunnel:'トンネル入口バス停。有馬温泉、三田アウトレット、北区箕谷・神戸方面など行きのバス停があります。',hotel:'ホテル玄関前・4階バスのりば。徳島・関西空港方面のリムジンバスがあります。'},
- en:{rotary:'Bus stops within the Rotary. Upper level: long-distance lines. Lower level: city lines.',tunnel:'Tunnel Entrance bus stop. Buses include services toward Tokushima and Kansai Airport.',hotel:'Hotel Entrance / 4th-floor bus stop. Limousine buses serve Tokushima and Kansai Airport.'},
- zh:{rotary:'圓環內的公車站。上層為廣域路線，下層為市區路線。',tunnel:'隧道入口公車站。可搭乘前往德島、關西機場等方向的巴士。',hotel:'飯店入口／4樓公車站。可搭乘前往德島、關西機場方向的機場巴士。'},
- ko:{rotary:'로터리 안의 버스 정류장입니다. 위쪽은 장거리 노선, 아래쪽은 시내 노선입니다.',tunnel:'터널 입구 버스 정류장입니다. 도쿠시마·간사이공항 방면 버스가 있습니다.',hotel:'호텔 입구·4층 버스 정류장입니다. 도쿠시마·간사이공항 방면 리무진버스가 있습니다.'},
- th:{rotary:'ป้ายรถภายในวงเวียน ชั้นบนเป็นรถระยะไกล ชั้นล่างเป็นรถในเมือง',tunnel:'ป้ายรถทางเข้าทางอุโมงค์ มีรถไปโทคุชิมะและสนามบินคันไซ',hotel:'ป้ายรถหน้าโรงแรม/ชั้น 4 มีรถลีมูซีนไปโทคุชิมะและสนามบินคันไซ'},
- ru:{rotary:'Остановки внутри кольцевой площади. Верхний уровень — междугородние автобусы, нижний — городские.',tunnel:'Остановка у входа в туннель. Есть автобусы в Токусиму и к аэропорту Кансай.',hotel:'Остановка у входа в отель / 4-й этаж. Есть автобусы в Токусиму и к аэропорту Кансай.'},
- es:{rotary:'Paradas dentro de la rotonda. Nivel superior: líneas interurbanas. Nivel inferior: líneas urbanas.',tunnel:'Parada de autobús en la entrada del túnel. Hay servicios hacia Tokushima y el aeropuerto de Kansai.',hotel:'Entrada del hotel / parada en el 4.º piso. Hay autobuses limusina hacia Tokushima y el aeropuerto de Kansai.'}
+ en:{rotary:'Bus stops within the Rotary. Upper level: long-distance lines. Lower level: city lines.',tunnel:'Tunnel Entrance bus stop. Buses are available to Arima Onsen, Sanda Premium Outlets, Minotani in Kita Ward, Kobe, and other destinations.',hotel:'Hotel Entrance / 4th-floor bus stop. Limousine buses serve Tokushima and Kansai Airport.'},
+ zh:{rotary:'圓環內的公車站。上層為廣域路線，下層為市區路線。',tunnel:'隧道入口巴士站。這裡有前往有馬溫泉、三田Outlet、神戶市北區箕谷、神戶市區等方向的巴士。',hotel:'飯店入口／4樓公車站。可搭乘前往德島、關西機場方向的機場巴士。'},
+ ko:{rotary:'로터리 안의 버스 정류장입니다. 위쪽은 장거리 노선, 아래쪽은 시내 노선입니다.',tunnel:'터널 입구 버스 정류장입니다. 아리마온천, 산다 아울렛, 고베시 기타구 미노타니, 고베 방면 등의 버스가 있습니다.',hotel:'호텔 입구·4층 버스 정류장입니다. 도쿠시마·간사이공항 방면 리무진버스가 있습니다.'},
+ th:{rotary:'ป้ายรถภายในวงเวียน ชั้นบนเป็นรถระยะไกล ชั้นล่างเป็นรถในเมือง',tunnel:'ป้ายรถทางเข้าทางอุโมงค์ มีรถไปอาริมะออนเซ็น ซันดะเอาต์เล็ต มิโนทานิ เขตคิตะ เมืองโกเบ และพื้นที่อื่น ๆ',hotel:'ป้ายรถหน้าโรงแรม/ชั้น 4 มีรถลีมูซีนไปโทคุชิมะและสนามบินคันไซ'},
+ ru:{rotary:'Остановки внутри кольцевой площади. Верхний уровень — междугородние автобусы, нижний — городские.',tunnel:'Остановка у входа в туннель. Отсюда отправляются автобусы к Арима-Онсэн, аутлету Санда, Минотани в районе Кита города Кобе и в другие районы Кобе.',hotel:'Остановка у входа в отель / 4-й этаж. Есть автобусы в Токусиму и к аэропорту Кансай.'},
+ es:{rotary:'Paradas dentro de la rotonda. Nivel superior: líneas interurbanas. Nivel inferior: líneas urbanas.',tunnel:'Parada de autobús en la entrada del túnel. Hay autobuses hacia Arima Onsen, Sanda Premium Outlets, Minotani en el distrito de Kita de Kobe y otras zonas de Kobe.',hotel:'Entrada del hotel / parada en el 4.º piso. Hay autobuses limusina hacia Tokushima y el aeropuerto de Kansai.'}
 };
 let lang='ja',stop='rotary';
 function applyLang(){const t=text[lang]||text.en; document.querySelectorAll('[data-t]').forEach(el=>{const k=el.dataset.t;if(t[k]!==undefined)el.textContent=t[k]});document.documentElement.lang=lang;document.querySelectorAll('.langs button').forEach(b=>b.classList.toggle('active',b.dataset.lang===lang));renderStop();}
