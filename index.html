@@ -11,7 +11,7 @@ header{padding:24px 16px 16px;text-align:center;border-bottom:1px solid #ddd}h1{
 .langs{display:flex;flex-wrap:wrap;gap:7px;justify-content:center;margin-top:16px}.langs button{border:1px solid #aaa;background:#fff;border-radius:8px;padding:8px 11px;cursor:pointer;font-weight:600}.langs button.active{background:#1769aa;color:#fff;border-color:#1769aa}
 main{max-width:900px;margin:auto;padding:18px 14px 40px}.notice{background:#fff7e8;border-left:5px solid var(--orange);padding:12px 14px;margin:10px 0 18px;border-radius:6px}
 .menu{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:18px 0}.menu button{min-height:82px;border:2px solid #ddd;border-radius:14px;background:#fff;font-size:18px;font-weight:700;cursor:pointer;box-shadow:0 2px 7px #00000012}.menu button:hover{transform:translateY(-1px)}
-.panel{display:none}.panel.active{display:block}.panel h2{font-size:26px;margin:12px 0}.panel p{margin:8px 0}.cards{display:grid;gap:12px}.card{border:1px solid #ddd;border-radius:12px;padding:15px;background:var(--soft)}.card h3{margin:0 0 7px}.stop-buttons{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}.stop-buttons button{padding:10px 13px;border-radius:9px;border:1px solid var(--blue);background:#fff;color:#145788;font-weight:700;cursor:pointer}.stop-buttons button.active{background:var(--blue);color:#fff}
+.panel{display:none}.panel.active{display:block;scroll-margin-top:16px}.panel h2{font-size:26px;margin:12px 0}.panel p{margin:8px 0}.cards{display:grid;gap:12px}.card{border:1px solid #ddd;border-radius:12px;padding:15px;background:var(--soft)}.card h3{margin:0 0 7px}.stop-buttons{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}.stop-buttons button{padding:10px 13px;border-radius:9px;border:1px solid var(--blue);background:#fff;color:#145788;font-weight:700;cursor:pointer}.stop-buttons button.active{background:var(--blue);color:#fff}
 .imagebox{text-align:center;margin-top:14px}.imagebox img{max-width:100%;height:auto;border:1px solid #ddd;border-radius:8px}.caption{font-size:14px;color:#666;margin-top:6px}.ko-note{padding:12px;border:1px dashed #999;border-radius:8px;background:#fff}
 .small{font-size:14px;color:#666}.back{margin-top:18px;border:0;background:#eee;border-radius:8px;padding:9px 12px;cursor:pointer}footer{text-align:center;padding:18px;color:#666;border-top:1px solid #ddd;font-size:13px}
 @media(max-width:650px){.menu{grid-template-columns:1fr}.menu button{min-height:70px}}
@@ -190,12 +190,19 @@ document.addEventListener('click',e=>{
   if(panelBtn){
     document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
     const panel=document.getElementById(panelBtn.dataset.panel);
-    if(panel) panel.classList.add('active');
+    if(panel){
+      panel.classList.add('active');
+      requestAnimationFrame(()=>panel.scrollIntoView({behavior:'smooth',block:'start'}));
+    }
     if(panelBtn.dataset.panel==='bus') renderStop();
     return;
   }
   const stopBtn=e.target.closest('[data-stop]');
-  if(stopBtn){stop=stopBtn.dataset.stop;renderStop();}
+  if(stopBtn){
+    stop=stopBtn.dataset.stop;
+    renderStop();
+    requestAnimationFrame(()=>document.getElementById('stopContent')?.scrollIntoView({behavior:'smooth',block:'start'}));
+  }
 });
 applyLang();
 document.getElementById('bus').classList.add('active');
