@@ -15,8 +15,20 @@ main{max-width:900px;margin:auto;padding:18px 14px 40px}.notice{background:#fff7
 .imagebox{text-align:center;margin-top:14px}.imagebox img{max-width:100%;height:auto;border:1px solid #ddd;border-radius:8px}.caption{font-size:14px;color:#666;margin-top:6px}.ko-note{padding:12px;border:1px dashed #999;border-radius:8px;background:#fff}
 .small{font-size:14px;color:#666}.back{margin-top:18px;border:0;background:#eee;border-radius:8px;padding:9px 12px;cursor:pointer}footer{text-align:center;padding:18px;color:#666;border-top:1px solid #ddd;font-size:13px}
 @media(max-width:650px){
-  .menu{grid-template-columns:1fr 1fr;gap:8px}
-  .menu button{min-height:64px;font-size:16px}
+  .menu{
+    grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+    gap:8px;
+    width:100%;
+  }
+  .menu button{
+    min-width:0;
+    width:100%;
+    min-height:64px;
+    font-size:15px;
+    padding:8px 6px;
+    white-space:normal;
+    overflow-wrap:anywhere;
+  }
 }
 </style>
 </head>
