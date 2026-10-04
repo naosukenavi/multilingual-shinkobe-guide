@@ -29,7 +29,8 @@ main{max-width:900px;margin:auto;padding:18px 14px 40px}.notice{background:#fff7
 <button type="button" data-panel="guide">📖 <span data-t="guideBtn">Guide / ご案内</span></button>
 <button type="button" data-panel="walking">🚶 <span data-t="walkingBtn">Walking Routes</span></button>
 <button type="button" data-panel="bus">🚌 <span data-t="busBtn">Bus Stops</span></button>
-<button type="button" onclick="window.open('https://naosukenavi.github.io/shinkobe-bus-navi/','_blank')">🔎 <span data-t="detailBtn">More detailed guide</span></button>
+<button type="button" data-panel="toilet">🚻 <span data-t="toiletBtn">Toilet Guide</span></button>　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　
+ <button type="button" onclick="window.open('https://naosukenavi.github.io/shinkobe-bus-navi/','_blank')">🔎 <span data-t="detailBtn">More detailed guide</span></button>
 </div>
 <section id="guide" class="panel">
 <h2 data-t="guideTitle">📖 Guide / ご案内</h2><div class="cards">
@@ -47,12 +48,55 @@ main{max-width:900px;margin:auto;padding:18px 14px 40px}.notice{background:#fff7
 <div class="stop-buttons"><button type="button" data-stop="rotary" class="active" data-t="rotary">ロータリー</button><button type="button" data-stop="tunnel" data-t="tunnel">トンネル入口バス停</button><button type="button" data-stop="hotel" data-t="hotel">ホテル玄関前</button></div>
 <div id="stopContent"></div>
 </section>
+ <section id="toilet" class="panel">
+  <h2 data-t="toiletTitle">🚻 Toilet Guide</h2>
+  <div id="toiletContent"></div>
+</section>
 </main><footer>Shin-Kobe Bus Guide by NaoMi</footer>
 <script>
 const images={
  rotary:{en:'assets/rotary-en.png',zh:'assets/rotary-zh.png',ko:'assets/rotary-ko.png',es:'assets/rotary-es.png',ja:'assets/rotary-ja.png',ru:'assets/rotary-ru.png',th:'assets/rotary-th.png'},
  tunnel:{en:'assets/tunnel-en.png',zh:'assets/tunnel-zh.png',ko:'assets/tunnel-ko.png',es:'assets/tunnel-es.png',ja:'assets/tunnel-ja.png',ru:'assets/tunnel-ru.png',th:'assets/tunnel-th.png'},
  hotel:{en:'assets/hotel-en.png',zh:'assets/hotel-zh.png',ko:'assets/hotel-ko.png',es:'assets/hotel-es.png',ja:'assets/hotel-ja.png',ru:'assets/hotel-ru.png',th:'assets/hotel-th.png'}
+};
+ const toiletImages={
+ ja:{
+   flush:'assets/toilet-flush-ja.png',
+   etiquette:'assets/toilet-etiquette-ja.png'
+ },
+ en:{
+   flush:'assets/toilet-flush-en.png',
+   etiquette:'assets/toilet-etiquette-en.png'
+ },
+ zh:{
+   flush:'assets/toilet-flush-zh.png',
+   etiquette:'assets/toilet-etiquette-zh.png'
+ },
+ ko:{
+   flush:'assets/toilet-flush-ko.png',
+   etiquette:'assets/toilet-etiquette-ko.png'
+ },
+ th:{
+   flush:'assets/toilet-flush-th.png',
+   etiquette:'assets/toilet-etiquette-th.png'
+ },
+ ru:{
+   flush:'assets/toilet-flush-ru.png',
+   etiquette:'assets/toilet-etiquette-ru.png'
+ },
+ es:{
+   flush:'assets/toilet-flush-es.png',
+   etiquette:'assets/toilet-etiquette-es.png'
+ }
+};
+ const toiletLabels={
+ ja:'トイレ案内',
+ en:'Toilet Guide',
+ zh:'洗手間指南',
+ ko:'화장실 안내',
+ th:'คู่มือการใช้ห้องน้ำ',
+ ru:'Информация о туалете',
+ es:'Guía del baño'
 };
 const text={
  ja:{title:'Shin-Kobe Station Guide',subtitle:'外国人旅行者向け・新神戸駅バス案内',notice:'写真と現地の表示を見比べながら、目的のバスのりばを確認してください。',guideBtn:'Guide / ご案内',walkingBtn:'Walking Routes',busBtn:'Bus Stops',detailBtn:'More detailed guide',guideTitle:'📖 Guide / ご案内',guide1h:'このアプリについて',guide1:'新神戸駅には複数のバスのりばがあります。このアプリは、行き先から迷わずのりばを確認するための案内です。',guide2h:'写真の見方',guide2:'実際の駅で見える案内表示と、アプリの写真を照らし合わせて進んでください。ロータリー・トンネル入口・ホテル玄関前で行き方が分かれます。',guide3h:'注意事項',guide3:'運行時刻・運休・のりば変更などは、当日の公式案内も確認してください。写真は現地案内を補助するためのものです。',guide4h:'困ったとき',guide4:'道が分からなくなったら、いったん安全な場所で止まり、駅の案内表示や係員に確認してください。',walkingTitle:'🚶 Walking Routes',walk0h:'安全に歩くために',walk0:'写真を確認するときは、道路上で立ち止まらず、安全な場所で確認してください。',walk1h:'布引バス停（2・18系統）',walk2h:'布引バス停（92系統）',walk3h:'布引ハーブ園',walk4h:'布引の滝',walk5h:'北野方面',walk6h:'三宮方面',busTitle:'🚌 Bus Stops',busIntro:'新神戸駅の主な3つのバスのりばです。',rotary:'ロータリー',tunnel:'トンネル入口バス停',hotel:'ホテル玄関前'},
@@ -161,7 +205,20 @@ const walkingRoutes = [
     'assets/kitano_sannomiya_guide_4.png'
   ]}
 ];
+function renderToilet(){
+  const box=document.getElementById('toiletContent');
+  if(!box) return;
 
+  const imgs=toiletImages[lang] || toiletImages.en;
+
+  box.innerHTML=
+    '<div class="card">'+
+      '<div class="imagebox"><img src="'+imgs.flush+'" alt="Toilet flushing guide"></div>'+
+    '</div>'+
+    '<div class="card" style="margin-top:14px;">'+
+      '<div class="imagebox"><img src="'+imgs.etiquette+'" alt="Toilet etiquette guide"></div>'+
+    '</div>';
+}
 function renderWalking(){
   const box=document.getElementById('walkingContent');
   if(!box) return;
@@ -180,7 +237,8 @@ function renderWalking(){
 }
 
 let lang='ja',stop='rotary';
-function applyLang(){const t=text[lang]||text.en; document.querySelectorAll('[data-t]').forEach(el=>{const k=el.dataset.t;if(t[k]!==undefined)el.textContent=t[k]});document.documentElement.lang=lang;document.querySelectorAll('.langs button').forEach(b=>b.classList.toggle('active',b.dataset.lang===lang));renderStop();renderWalking();}
+function applyLang(){const t=text[lang]||text.en; document.querySelectorAll('[data-t]').forEach(el=>{const k=el.dataset.t;if(t[k]!==undefined)el.textContent=t[k]});document.documentElement.lang=lang;document.querySelectorAll('.langs button').forEach(b=>b.classList.toggle('active',b.dataset.lang===lang));document.querySelector('[data-t="toiletBtn"]').textContent=toiletLabels[lang]||toiletLabels.en;
+document.querySelector('[data-t="toiletTitle"]').textContent='🚻 '+(toiletLabels[lang]||toiletLabels.en);renderStop();renderWalking();renderToilet();}
 function renderStop(){const d=stopText[lang]||stopText.en;const box=document.getElementById('stopContent');const img=images[stop][lang];let html='<div class="card"><h3>'+((text[lang]||text.en)[stop])+'</h3><p>'+d[stop]+'</p>';
 if(img){html+='<div class="imagebox"><img src="'+img+'" alt="'+((text[lang]||text.en)[stop])+'"><div class="caption">Shin-Kobe Bus Guide by NaoMi</div></div>';}else{html+='<div class="ko-note">'+(lang==='ko'?'<strong>사진準備中</strong><br>韓国語版の画像は後から追加できます。':'Image not available in this language yet.')+'</div>';}html+='</div>';box.innerHTML=html;document.querySelectorAll('[data-stop]').forEach(b=>b.classList.toggle('active',b.dataset.stop===stop));}
 document.addEventListener('click',e=>{
