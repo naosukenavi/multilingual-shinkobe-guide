@@ -237,21 +237,32 @@ function renderToilet(){
 function renderWalking(){
   const box=document.getElementById('walkingContent');
   if(!box) return;
-  const t=walkingData[walkingRoutes[0].key] && (walkingData[walkingRoutes[0].key][lang] || walkingData[walkingRoutes[0].key].en);
+
   const safe=walkingData.safe[lang] || walkingData.safe.en;
+  const route=walkingRoutes.find(r=>r.key===walkingKey) || walkingRoutes[0];
+  const d=walkingData[route.key][lang] || walkingData[route.key].en;
+
   let html='<div class="walking-note"><strong>'+safe.title+'</strong><br>'+safe.text+'</div>';
-  walkingRoutes.forEach(route=>{
-    const d=walkingData[route.key][lang] || walkingData[route.key].en;
-    html+='<div class="walking-route"><h3>'+d.title+'</h3><p>'+d.desc+'</p><div class="walking-photos">';
-    route.files.forEach((src,i)=>{
-      html+='<figure><img src="'+src+'" alt="'+d.title+' - '+(i+1)+'"><figcaption>'+d.title+' / '+(i+1)+'</figcaption></figure>';
-    });
-    html+='</div><p class="small"><strong>'+d.note+'</strong></p></div>';
+
+  html+='<div class="stop-buttons">';
+  walkingRoutes.forEach(r=>{
+    const rd=walkingData[r.key][lang] || walkingData[r.key].en;
+    html+='<button type="button" data-walking="'+r.key+'" class="'+(r.key===route.key?'active':'')+'">'+rd.title+'</button>';
   });
+  html+='</div>';
+
+  html+='<div class="walking-route"><h3>'+d.title+'</h3><p>'+d.desc+'</p><div class="walking-photos">';
+
+  route.files.forEach((src,i)=>{
+    html+='<figure><img src="'+src+'" alt="'+d.title+' - '+(i+1)+'"><figcaption>'+d.title+' / '+(i+1)+'</figcaption></figure>';
+  });
+
+  html+='</div><p class="small"><strong>'+d.note+'</strong></p></div>';
+
   box.innerHTML=html;
 }
 
-let lang='ja',stop='rotary';
+let lang='ja',stop='rotary',walkingKey='herb';
 function applyLang(){const t=text[lang]||text.en; document.querySelectorAll('[data-t]').forEach(el=>{const k=el.dataset.t;if(t[k]!==undefined)el.textContent=t[k]});document.documentElement.lang=lang;document.querySelectorAll('.langs button').forEach(b=>b.classList.toggle('active',b.dataset.lang===lang));document.querySelector('[data-t="toiletBtn"]').textContent=toiletLabels[lang]||toiletLabels.en;
 document.querySelector('[data-t="toiletTitle"]').textContent='🚻 '+(toiletLabels[lang]||toiletLabels.en);renderStop();renderWalking();renderToilet();}
 function renderStop(){const d=stopText[lang]||stopText.en;const box=document.getElementById('stopContent');const img=images[stop][lang];let html='<div class="card"><h3>'+((text[lang]||text.en)[stop])+'</h3><p>'+d[stop]+'</p>';
@@ -270,6 +281,12 @@ document.addEventListener('click',e=>{
     if(panelBtn.dataset.panel==='bus') renderStop();
     return;
   }
+  const walkingBtn=e.target.closest('[data-walking]');
+if(walkingBtn){
+  walkingKey=walkingBtn.dataset.walking;
+  renderWalking();
+  return;
+}
   const stopBtn=e.target.closest('[data-stop]');
   if(stopBtn){
     stop=stopBtn.dataset.stop;
