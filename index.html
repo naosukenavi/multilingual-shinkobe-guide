@@ -69,7 +69,47 @@ main{max-width:900px;margin:auto;padding:18px 14px 40px}.notice{background:#fff7
   <h2 data-t="toiletTitle">🚻 Toilet Guide</h2>
   <div id="toiletContent"></div>
 </section>
-</main><footer>Shin-Kobe Bus Guide by NaoMi</footer>
+</main>
+
+<section style="max-width:900px;margin:0 auto;padding:0 14px 24px;">
+  <hr style="border:0;border-top:1px solid #ddd;margin:0 0 20px;">
+  <h2 data-t="siteInfoTitle">このサイトについて</h2>
+
+  <details style="border:1px solid #ddd;border-radius:10px;padding:12px 14px;margin:8px 0;">
+    <summary style="font-weight:700;cursor:pointer;" data-t="termsTitle">ご利用にあたって</summary>
+    <div style="padding-top:10px;">
+      <p data-t="terms1">本サイトは、現地確認をもとに個人で作成した案内サイトです。交通事業者・行政機関などが運営する公式サイトではありません。</p>
+      <p data-t="terms2">運行時刻、乗り場、運賃、停車地、運行内容などは変更される場合があります。ご利用時には、現地表示と各交通事業者の最新の公式情報もご確認ください。</p>
+      <p data-t="terms3">本サイトの情報を利用したことによって生じた損害について、運営者は責任を負いかねます。安全を最優先に、現地の係員・案内表示に従ってください。</p>
+    </div>
+  </details>
+
+  <details style="border:1px solid #ddd;border-radius:10px;padding:12px 14px;margin:8px 0;">
+    <summary style="font-weight:700;cursor:pointer;" data-t="privacyTitle">プライバシーについて</summary>
+    <div style="padding-top:10px;">
+      <p data-t="privacy1">本サイトには、会員登録・位置情報取得機能はありません。サイトの利用状況を把握し、案内の改善に役立てるため、アクセス解析サービス「GoatCounter」を利用しています。GoatCounterでは、閲覧されたページ、参照元、ブラウザ・端末の種類、IPアドレスから推定される国・地域などの統計情報を確認しています。</p>
+      <p data-t="privacy2">また、Google検索での表示状況や検索パフォーマンスを確認するため、「Google Search Console」を利用しています。</p>
+    </div>
+  </details>
+
+  <details style="border:1px solid #ddd;border-radius:10px;padding:12px 14px;margin:8px 0;">
+    <summary style="font-weight:700;cursor:pointer;" data-t="businessTitle">業務利用について</summary>
+    <div style="padding-top:10px;">
+      <p data-t="business1">個人での閲覧・案内時の参照は自由です。</p>
+      <p data-t="business2">交通事業者・施設・団体等による掲示、配布、業務上の継続利用をご希望の場合は、更新・訂正等の対応のため、事前にご連絡ください。</p>
+    </div>
+  </details>
+
+  <details style="border:1px solid #ddd;border-radius:10px;padding:12px 14px;margin:8px 0;">
+    <summary style="font-weight:700;cursor:pointer;" data-t="copyrightTitle">著作権・転載について</summary>
+    <div style="padding-top:10px;">
+      <p data-t="copyright1">本サイト内の文章・写真・案内画像・構成の著作権は、特記のない限り NaoMi@Kobe に帰属します。無断転載・無断使用・再配布・加工しての公開はご遠慮ください。</p>
+      <p data-t="copyright2">交通事業者名、路線名、施設名などの名称・商標は、それぞれの権利者に帰属します。</p>
+    </div>
+  </details>
+</section>
+
+<footer>© 2026 NaoMi@Kobe</footer>
 <script>
 const images={
  rotary:{en:'assets/rotary-en.png',zh:'assets/rotary-zh.png',ko:'assets/rotary-ko.png',es:'assets/rotary-es.png',ja:'assets/rotary-ja.png',ru:'assets/rotary-ru.png',th:'assets/rotary-th.png'},
@@ -124,6 +164,124 @@ const text={
  ru:{title:'Путеводитель по станции Син-Кобэ',subtitle:'Автобусный гид для иностранных посетителей',notice:'Сравнивайте фотографии с указателями на станции.',guideBtn:'Гид / Как пользоваться',walkingBtn:'Walking Routes',busBtn:'Bus Stops',detailBtn:'More detailed guide',guideTitle:'📖 Гид / Как пользоваться',guide1h:'О гиде',guide1:'На станции Син-Кобэ несколько автобусных остановок. Этот гид поможет вам найти нужную остановку по месту назначения.',guide2h:'Как пользоваться фотографиями',guide2:'Сравнивайте фотографии с указателями на станции во время движения. Маршруты расходятся у кольцевой площади, входа в туннель и входа в отель.',guide3h:'Важно',guide3:'В день поездки проверяйте официальную информацию о расписании, изменениях движения и остановок. Фотографии служат только для помощи в навигации.',guide4h:'Если вы заблудились',guide4:'Если вы не знаете, куда идти, остановитесь в безопасном месте, проверьте указатели на станции или обратитесь к сотруднику станции.',rotary:'Автобусная остановка на кольцевой площади',tunnel:'Остановка у входа в туннель',hotel:'Остановка у входа в отель'},
  es:{title:'Guía de la estación Shin-Kobe',subtitle:'Guía de autobuses para visitantes extranjeros',notice:'Compare las fotos con las señales de la estación.',guideBtn:'Guía / Cómo usarla',walkingBtn:'Walking Routes',busBtn:'Bus Stops',detailBtn:'More detailed guide',guideTitle:'📖 Guía / Cómo usarla',guide1h:'Sobre esta guía',guide1:'La estación Shin-Kobe tiene varias paradas de autobús. Esta guía le ayuda a encontrar la parada correcta según su destino.',guide2h:'Cómo usar las fotos',guide2:'Mientras camina, compare las fotos con las señales de la estación. Las rutas se separan en la rotonda, la entrada del túnel y la entrada del hotel.',guide3h:'Importante',guide3:'El día del viaje, consulte la información oficial sobre horarios, cambios de servicio o cambios de parada. Las fotos son solo una ayuda para orientarse.',guide4h:'Si se pierde',guide4:'Si no sabe por dónde ir, deténgase primero en un lugar seguro y consulte las señales de la estación o pida ayuda al personal.',rotary:'Parada en la rotonda',tunnel:'Parada en la entrada del túnel',hotel:'Parada frente al hotel'}
 };
+Object.assign(text.ja,{
+  siteInfoTitle:'このサイトについて',
+  termsTitle:'ご利用にあたって',
+  terms1:'本サイトは、現地確認をもとに個人で作成した案内サイトです。交通事業者・行政機関などが運営する公式サイトではありません。',
+  terms2:'運行時刻、乗り場、運賃、停車地、運行内容などは変更される場合があります。ご利用時には、現地表示と各交通事業者の最新の公式情報もご確認ください。',
+  terms3:'本サイトの情報を利用したことによって生じた損害について、運営者は責任を負いかねます。安全を最優先に、現地の係員・案内表示に従ってください。',
+  privacyTitle:'プライバシーについて',
+  privacy1:'本サイトには、会員登録・位置情報取得機能はありません。サイトの利用状況を把握し、案内の改善に役立てるため、アクセス解析サービス「GoatCounter」を利用しています。GoatCounterでは、閲覧されたページ、参照元、ブラウザ・端末の種類、IPアドレスから推定される国・地域などの統計情報を確認しています。',
+  privacy2:'また、Google検索での表示状況や検索パフォーマンスを確認するため、「Google Search Console」を利用しています。',
+  businessTitle:'業務利用について',
+  business1:'個人での閲覧・案内時の参照は自由です。',
+  business2:'交通事業者・施設・団体等による掲示、配布、業務上の継続利用をご希望の場合は、更新・訂正等の対応のため、事前にご連絡ください。',
+  copyrightTitle:'著作権・転載について',
+  copyright1:'本サイト内の文章・写真・案内画像・構成の著作権は、特記のない限り NaoMi@Kobe に帰属します。無断転載・無断使用・再配布・加工しての公開はご遠慮ください。',
+  copyright2:'交通事業者名、路線名、施設名などの名称・商標は、それぞれの権利者に帰属します。'
+});
+
+Object.assign(text.en,{
+  siteInfoTitle:'About this site',
+  termsTitle:'Terms of use',
+  terms1:'This is an independently created guide based on on-site observations. It is not an official website operated by a transport company or public authority.',
+  terms2:'Timetables, boarding points, fares, stops and service details may change. Please also check on-site signs and the latest official information from each transport operator.',
+  terms3:'The operator cannot accept liability for loss or damage arising from use of this site. Please put safety first and follow on-site staff instructions and signs.',
+  privacyTitle:'Privacy',
+  privacy1:'This site does not require membership registration or collect location information. GoatCounter is used to understand site usage and improve the guide. Statistical information may include pages viewed, referrers, browser and device types, and country or region estimated from the IP address.',
+  privacy2:'Google Search Console is also used to monitor how this site appears and performs in Google Search.',
+  businessTitle:'Use by organizations',
+  business1:'Individuals are welcome to view and refer to this site when providing guidance.',
+  business2:'If a transport operator, facility or organization wishes to display, distribute or use this site on an ongoing basis for work purposes, please contact the site operator in advance so that updates and corrections can be handled appropriately.',
+  copyrightTitle:'Copyright and reuse',
+  copyright1:'Unless otherwise stated, the text, photographs, guide images and site structure are copyrighted by NaoMi@Kobe. Unauthorized reproduction, reuse, redistribution or publication of modified materials is not permitted.',
+  copyright2:'Names and trademarks of transport operators, routes and facilities belong to their respective owners.'
+});
+
+Object.assign(text.zh,{
+  siteInfoTitle:'关于本网站',
+  termsTitle:'使用须知',
+  terms1:'本网站是根据现场确认，由个人制作的交通指南，并非交通运营商或行政机关运营的官方网站。',
+  terms2:'发车时间、乘车地点、票价、停靠站及运营内容等可能发生变化。使用时请同时确认现场告示以及各交通运营商的最新官方信息。',
+  terms3:'对于因使用本网站信息而造成的损失，运营者无法承担责任。请以安全为最优先，并遵从现场工作人员及指示牌。',
+  privacyTitle:'隐私说明',
+  privacy1:'本网站不设会员注册，也不取得位置资讯。为了了解网站使用情况并改善指南，本网站使用 GoatCounter。统计资讯可能包括浏览页面、来源、浏览器及设备种类，以及根据IP地址推测的国家或地区。',
+  privacy2:'本网站亦使用 Google Search Console，以确认在 Google 搜索中的显示情况及搜索表现。',
+  businessTitle:'业务使用',
+  business1:'个人浏览或在提供指引时参考本网站均可自由使用。',
+  business2:'交通运营商、设施或团体如希望张贴、分发或持续用于业务，请事先联系，以便处理更新及修正。',
+  copyrightTitle:'版权与转载',
+  copyright1:'除特别注明外，本网站的文字、照片、指南图片及网站结构之版权归 NaoMi@Kobe 所有。请勿未经许可转载、使用、再分发或加工后公开。',
+  copyright2:'交通运营商名称、路线名称、设施名称及商标等权利归各自权利人所有。'
+});
+
+Object.assign(text.ko,{
+  siteInfoTitle:'이 사이트에 대하여',
+  termsTitle:'이용 안내',
+  terms1:'이 사이트는 현장 확인을 바탕으로 개인이 만든 안내 사이트입니다. 교통사업자나 행정기관이 운영하는 공식 사이트가 아닙니다.',
+  terms2:'운행 시간, 승차 장소, 운임, 정차지 및 운행 내용은 변경될 수 있습니다. 이용 시 현장 안내와 각 교통사업자의 최신 공식 정보도 확인해 주세요.',
+  terms3:'이 사이트의 정보를 이용하여 발생한 손해에 대해 운영자는 책임을 지기 어렵습니다. 안전을 최우선으로 하고 현장 직원과 안내 표지에 따라 주세요.',
+  privacyTitle:'개인정보 보호',
+  privacy1:'이 사이트에는 회원 등록이나 위치정보 수집 기능이 없습니다. 이용 상황을 파악하고 안내를 개선하기 위해 GoatCounter를 사용합니다. 열람한 페이지, 유입 경로, 브라우저·기기 종류, IP 주소로 추정되는 국가 또는 지역 등의 통계 정보를 확인할 수 있습니다.',
+  privacy2:'또한 Google 검색에서의 표시 상황과 검색 성과를 확인하기 위해 Google Search Console을 사용합니다.',
+  businessTitle:'업무 이용',
+  business1:'개인이 열람하거나 안내 시 참고하는 것은 자유롭게 이용할 수 있습니다.',
+  business2:'교통사업자, 시설 또는 단체가 게시·배포하거나 업무에 지속적으로 이용하려는 경우에는 업데이트 및 수정 대응을 위해 사전에 연락해 주세요.',
+  copyrightTitle:'저작권 및 재사용',
+  copyright1:'별도 표기가 없는 한 이 사이트의 글, 사진, 안내 이미지 및 구성의 저작권은 NaoMi@Kobe에 있습니다. 무단 전재, 사용, 재배포 또는 가공 후 공개는 삼가 주세요.',
+  copyright2:'교통사업자명, 노선명, 시설명 및 상표 등의 권리는 각각의 권리자에게 있습니다.'
+});
+
+Object.assign(text.th,{
+  siteInfoTitle:'เกี่ยวกับเว็บไซต์นี้',
+  termsTitle:'เงื่อนไขการใช้งาน',
+  terms1:'เว็บไซต์นี้จัดทำขึ้นโดยบุคคลโดยอ้างอิงจากการตรวจสอบสถานที่จริง ไม่ใช่เว็บไซต์ทางการของผู้ให้บริการขนส่งหรือหน่วยงานราชการ',
+  terms2:'เวลาเดินรถ จุดขึ้นรถ ค่าโดยสาร จุดจอด และรายละเอียดการให้บริการอาจมีการเปลี่ยนแปลง โปรดตรวจสอบป้ายในสถานที่จริงและข้อมูลทางการล่าสุดของผู้ให้บริการขนส่งด้วย',
+  terms3:'ผู้จัดทำไม่สามารถรับผิดชอบต่อความเสียหายที่เกิดจากการใช้ข้อมูลในเว็บไซต์นี้ โปรดให้ความสำคัญกับความปลอดภัยและปฏิบัติตามคำแนะนำของเจ้าหน้าที่และป้ายในพื้นที่',
+  privacyTitle:'ความเป็นส่วนตัว',
+  privacy1:'เว็บไซต์นี้ไม่มีระบบสมัครสมาชิกและไม่มีฟังก์ชันเก็บข้อมูลตำแหน่ง เพื่อดูภาพรวมการใช้งานและปรับปรุงคู่มือ เว็บไซต์ใช้ GoatCounter ซึ่งอาจแสดงข้อมูลสถิติ เช่น หน้าที่เปิดดู แหล่งที่มา ประเภทเบราว์เซอร์และอุปกรณ์ รวมถึงประเทศหรือภูมิภาคที่ประเมินจากที่อยู่ IP',
+  privacy2:'นอกจากนี้ยังใช้ Google Search Console เพื่อตรวจสอบการแสดงผลและประสิทธิภาพของเว็บไซต์ใน Google Search',
+  businessTitle:'การใช้งานโดยองค์กร',
+  business1:'บุคคลทั่วไปสามารถเข้าชมและใช้อ้างอิงเพื่อให้คำแนะนำได้อย่างอิสระ',
+  business2:'หากผู้ให้บริการขนส่ง สถานที่ หรือองค์กรต้องการนำไปติดประกาศ แจกจ่าย หรือใช้งานอย่างต่อเนื่อง โปรดติดต่อผู้จัดทำล่วงหน้าเพื่อให้สามารถดำเนินการอัปเดตและแก้ไขข้อมูลได้',
+  copyrightTitle:'ลิขสิทธิ์และการนำไปใช้',
+  copyright1:'เว้นแต่จะระบุไว้เป็นอย่างอื่น ข้อความ รูปภาพ ภาพแนะนำ และโครงสร้างเว็บไซต์เป็นลิขสิทธิ์ของ NaoMi@Kobe โปรดอย่าคัดลอก ใช้ซ้ำ แจกจ่าย หรือเผยแพร่เนื้อหาที่ดัดแปลงโดยไม่ได้รับอนุญาต',
+  copyright2:'ชื่อผู้ให้บริการขนส่ง ชื่อเส้นทาง ชื่อสถานที่ และเครื่องหมายการค้า เป็นสิทธิของเจ้าของสิทธิแต่ละราย'
+});
+
+Object.assign(text.ru,{
+  siteInfoTitle:'Об этом сайте',
+  termsTitle:'Условия использования',
+  terms1:'Этот информационный сайт создан частным лицом на основе проверки на месте. Он не является официальным сайтом транспортной компании или государственного учреждения.',
+  terms2:'Расписание, места посадки, стоимость проезда, остановки и условия движения могут меняться. При использовании также проверяйте указатели на месте и актуальную официальную информацию транспортных компаний.',
+  terms3:'Автор сайта не несёт ответственности за ущерб, возникший в результате использования информации сайта. Безопасность должна быть главным приоритетом; следуйте указаниям сотрудников и информационным знакам на месте.',
+  privacyTitle:'Конфиденциальность',
+  privacy1:'На сайте нет регистрации пользователей и функции получения данных о местоположении. Для анализа использования сайта и улучшения путеводителя используется GoatCounter. Статистика может включать просмотренные страницы, источники переходов, тип браузера и устройства, а также страну или регион, определённые приблизительно по IP-адресу.',
+  privacy2:'Также используется Google Search Console для анализа отображения сайта и его эффективности в поиске Google.',
+  businessTitle:'Использование организациями',
+  business1:'Частные лица могут свободно просматривать сайт и использовать его как справочный материал при оказании помощи.',
+  business2:'Если транспортная компания, учреждение или организация хочет размещать, распространять или регулярно использовать материалы сайта в работе, пожалуйста, заранее свяжитесь с автором для обеспечения обновлений и исправлений.',
+  copyrightTitle:'Авторские права и использование',
+  copyright1:'Если не указано иное, авторские права на тексты, фотографии, информационные изображения и структуру сайта принадлежат NaoMi@Kobe. Несанкционированное копирование, использование, распространение или публикация изменённых материалов не разрешается.',
+  copyright2:'Названия транспортных компаний, маршрутов, учреждений и товарные знаки принадлежат их соответствующим правообладателям.'
+});
+
+Object.assign(text.es,{
+  siteInfoTitle:'Acerca de este sitio',
+  termsTitle:'Condiciones de uso',
+  terms1:'Este sitio informativo ha sido creado de forma independiente a partir de comprobaciones realizadas en el lugar. No es un sitio oficial gestionado por una empresa de transporte ni por una autoridad pública.',
+  terms2:'Los horarios, puntos de embarque, tarifas, paradas y servicios pueden cambiar. Al utilizar esta guía, consulte también las señales del lugar y la información oficial más reciente de cada operador de transporte.',
+  terms3:'La persona responsable del sitio no puede asumir responsabilidad por pérdidas o daños derivados del uso de esta información. Priorice siempre la seguridad y siga las indicaciones del personal y de las señales del lugar.',
+  privacyTitle:'Privacidad',
+  privacy1:'Este sitio no requiere registro de usuarios ni obtiene información de ubicación. Para conocer el uso del sitio y mejorar la guía se utiliza GoatCounter. Las estadísticas pueden incluir páginas visitadas, procedencia de las visitas, tipo de navegador y dispositivo, y país o región estimados a partir de la dirección IP.',
+  privacy2:'También se utiliza Google Search Console para comprobar cómo aparece y funciona este sitio en la Búsqueda de Google.',
+  businessTitle:'Uso por organizaciones',
+  business1:'Las personas pueden consultar libremente este sitio y utilizarlo como referencia al ofrecer orientación.',
+  business2:'Si una empresa de transporte, establecimiento u organización desea mostrar, distribuir o utilizar este sitio de forma continuada para fines profesionales, póngase en contacto previamente para facilitar las actualizaciones y correcciones.',
+  copyrightTitle:'Derechos de autor y reutilización',
+  copyright1:'Salvo que se indique lo contrario, los textos, fotografías, imágenes de orientación y la estructura del sitio pertenecen a NaoMi@Kobe. No se permite su reproducción, reutilización, redistribución ni publicación modificada sin autorización.',
+  copyright2:'Los nombres y marcas de empresas de transporte, rutas e instalaciones pertenecen a sus respectivos titulares.'
+});  
 const stopText={
  ja:{rotary:'ロータリー内のバスのりば。上段は広域系、下段は市内系です。',tunnel:'トンネル入口バス停。有馬温泉、三田アウトレット、北区箕谷・神戸方面など行きのバス停があります。',hotel:'ホテル玄関前・4階バスのりば。徳島・関西空港方面のリムジンバスがあります。'},
  en:{rotary:'Bus stops within the Rotary. Upper level: long-distance lines. Lower level: city lines.',tunnel:'Tunnel Entrance bus stop. Buses are available to Arima Onsen, Sanda Premium Outlets, Minotani in Kita Ward, Kobe, and other destinations.',hotel:'Hotel Entrance / 4th-floor bus stop. Limousine buses serve Tokushima and Kansai Airport.'},
