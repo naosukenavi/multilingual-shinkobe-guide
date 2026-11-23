@@ -49,6 +49,10 @@ main{max-width:900px;margin:auto;padding:18px 14px 40px}.notice{background:#fff7
 <button type="button" data-panel="bus">🚌 <span data-t="busBtn">Bus Stops</span></button>
 <button type="button" data-panel="toilet">🚻 <span data-t="toiletBtn">Toilet Guide</span></button>
 <button type="button" onclick="window.open('https://naosukenavi.github.io/shinkobe-bus-navi/','_blank')">🔎 <span data-t="detailBtn">More detailed guide</span></button>
+
+<button type="button" id="youtubePlaylistBtn" onclick="window.open(playlistUrls[lang], '_blank')"><span data-t="youtubeBtn">▶ YouTube 動画ガイド</span></button>
+
+
 </div>
 <section id="guide" class="panel">
 <h2 data-t="guideTitle">📖 Guide / ご案内</h2><div class="cards">
@@ -165,6 +169,14 @@ const text={
  ru:{title:'Путеводитель по станции Син-Кобэ',subtitle:'Автобусный гид для иностранных посетителей',notice:'Сравнивайте фотографии с указателями на станции.',guideBtn:'Гид / Как пользоваться',walkingBtn:'Walking Routes',busBtn:'Bus Stops',detailBtn:'More detailed guide',guideTitle:'📖 Гид / Как пользоваться',guide1h:'О гиде',guide1:'На станции Син-Кобэ несколько автобусных остановок. Этот гид поможет вам найти нужную остановку по месту назначения.',guide2h:'Как пользоваться фотографиями',guide2:'Сравнивайте фотографии с указателями на станции во время движения. Маршруты расходятся у кольцевой площади, входа в туннель и входа в отель.',guide3h:'Важно',guide3:'В день поездки проверяйте официальную информацию о расписании, изменениях движения и остановок. Фотографии служат только для помощи в навигации.',guide4h:'Если вы заблудились',guide4:'Если вы не знаете, куда идти, остановитесь в безопасном месте, проверьте указатели на станции или обратитесь к сотруднику станции.',rotary:'Автобусная остановка на кольцевой площади',tunnel:'Остановка у входа в туннель',hotel:'Остановка у входа в отель'},
  es:{title:'Guía de la estación Shin-Kobe',subtitle:'Guía de autobuses para visitantes extranjeros',notice:'Compare las fotos con las señales de la estación.',guideBtn:'Guía / Cómo usarla',walkingBtn:'Walking Routes',busBtn:'Bus Stops',detailBtn:'More detailed guide',guideTitle:'📖 Guía / Cómo usarla',guide1h:'Sobre esta guía',guide1:'La estación Shin-Kobe tiene varias paradas de autobús. Esta guía le ayuda a encontrar la parada correcta según su destino.',guide2h:'Cómo usar las fotos',guide2:'Mientras camina, compare las fotos con las señales de la estación. Las rutas se separan en la rotonda, la entrada del túnel y la entrada del hotel.',guide3h:'Importante',guide3:'El día del viaje, consulte la información oficial sobre horarios, cambios de servicio o cambios de parada. Las fotos son solo una ayuda para orientarse.',guide4h:'Si se pierde',guide4:'Si no sabe por dónde ir, deténgase primero en un lugar seguro y consulte las señales de la estación o pida ayuda al personal.',rotary:'Parada en la rotonda',tunnel:'Parada en la entrada del túnel',hotel:'Parada frente al hotel'}
 };
+text.ja.youtubeBtn = '▶ YouTube 動画ガイド';
+text.en.youtubeBtn = '▶ Watch videos on YouTube';
+text.zh.youtubeBtn = '▶ 观看 YouTube 视频';
+text.ko.youtubeBtn = '▶ YouTube 동영상 보기';
+text.th.youtubeBtn = '▶ ดูวิดีโอบน YouTube';
+text.ru.youtubeBtn = '▶ Смотреть видео на YouTube';
+text.es.youtubeBtn = '▶ Ver vídeos en YouTube';
+
 Object.assign(text.ja,{
   siteInfoTitle:'このサイトについて',
   termsTitle:'ご利用にあたって',
@@ -470,6 +482,17 @@ function renderWalking(){
 }
 
 let lang='ja',stop='rotary',walkingKey='herb';
+ 
+const playlistUrls = {
+  ja: 'https://www.youtube.com/playlist?list=PLAfaWDPkdZNs',
+  en: 'https://www.youtube.com/playlist?list=PLXFJ98DTFmEc',
+  zh: 'https://www.youtube.com/playlist?list=PLXUYov2CZB5Q',
+  ko: 'https://www.youtube.com/playlist?list=PLETOKO5gcKac',
+  th: 'https://www.youtube.com/playlist?list=PLJGWlV66BUJE',
+  ru: 'https://www.youtube.com/playlist?list=PLCMRdz7wm5A8',
+  es: 'https://www.youtube.com/playlist?list=PLDIa_trzN-A8'
+};
+
 function applyLang(){const t=text[lang]||text.en; document.querySelectorAll('[data-t]').forEach(el=>{const k=el.dataset.t;if(t[k]!==undefined)el.textContent=t[k]});document.documentElement.lang=lang;document.querySelectorAll('.langs button').forEach(b=>b.classList.toggle('active',b.dataset.lang===lang));document.querySelector('[data-t="toiletBtn"]').textContent=toiletLabels[lang]||toiletLabels.en;
 document.querySelector('[data-t="toiletTitle"]').textContent='🚻 '+(toiletLabels[lang]||toiletLabels.en);renderStop();renderWalking();renderToilet();}
 function renderStop(){const d=stopText[lang]||stopText.en;const box=document.getElementById('stopContent');const img=images[stop][lang];let html='<div class="card"><h3>'+((text[lang]||text.en)[stop])+'</h3><p>'+d[stop]+'</p>';
