@@ -347,6 +347,44 @@ const walkingData = {
     th:{title:'ย่านคิตาโนะ / ซันโนมิยะ',desc:'เส้นทางเดินจากทางออกทิศใต้ไปยังคิตาโนะหรือซันโนมิยะ',note:'ออกทางทิศใต้แล้วเลี้ยวขวา ทางขึ้นเนินไปคิตาโนะ ส่วนทางราบไปซันโนมิยะ'},
     ru:{title:'Район Китано / Санномия',desc:'Пешеходный маршрут от южного выхода в сторону Китано или Санномия.',note:'Выйдите через южный выход и поверните направо. Вверх — к Китано, по ровной дороге — к Санномия.'},
     es:{title:'Zona de Kitano / Sannomiya',desc:'Ruta a pie desde la salida sur hacia Kitano o Sannomiya.',note:'Salga por la salida sur y gire a la derecha. La subida lleva hacia Kitano; el camino llano, hacia Sannomiya.'}
+  },
+ 
+  takenakaDaiku: {
+    ja: {
+      title: '竹中大工道具館',
+      desc: '新神戸駅ロータリー東端から竹中大工道具館までの徒歩ルート。生田橋を渡り、健診クリニックビルの横を進みます。',
+      note: '写真の順番に進んでください。途中に勾配のきつい上り坂があります。'
+    },
+    en: {
+      title: 'Takenaka Carpentry Tools Museum',
+      desc: 'Walking route from the east end of the Shin-Kobe Station rotary. Cross Ikuta Bridge and continue past the Health Checkup Clinic Building.',
+      note: 'Follow the photos in order. Part of the route has a steep uphill slope.'
+    },
+    zh: {
+      title: '竹中大工工具馆',
+      desc: '从新神户站环岛东端步行前往竹中大工工具馆。经过生田桥，沿体检诊所大楼旁的道路前行。',
+      note: '请按照片顺序前进。途中有一段较陡的上坡路。'
+    },
+    ko: {
+      title: '다케나카 목공 도구 박물관',
+      desc: '신고베역 로터리 동쪽 끝에서 이쿠타바시를 건너 건강검진 클리닉 건물 옆길을 따라 걷는 경로입니다.',
+      note: '사진 순서대로 이동하세요. 도중에 경사가 가파른 오르막길이 있습니다.'
+    },
+    th: {
+      title: 'พิพิธภัณฑ์เครื่องมือช่างไม้ทาเคนากะ',
+      desc: 'เส้นทางเดินจากด้านตะวันออกของวงเวียนสถานีชินโกเบ ข้ามสะพานอิคุตะและเดินผ่านอาคารคลินิกตรวจสุขภาพ',
+      note: 'เดินตามลำดับภาพ ระหว่างทางมีช่วงทางขึ้นเนินที่ค่อนข้างชัน'
+    },
+    ru: {
+      title: 'Музей плотницких инструментов Такэнака',
+      desc: 'Пеший маршрут от восточной части площади перед станцией Син-Кобе. Перейдите мост Икута и пройдите мимо здания клиники медицинских осмотров.',
+      note: 'Следуйте фотографиям по порядку. На маршруте есть крутой подъём.'
+    },
+    es: {
+      title: 'Museo de Herramientas de Carpintería Takenaka',
+      desc: 'Ruta a pie desde el extremo este de la rotonda de la estación Shin-Kobe. Cruce el puente Ikuta y continúe junto al edificio de la clínica de reconocimientos médicos.',
+      note: 'Siga las fotos en orden. Hay una subida pronunciada en parte del recorrido.'
+    }
   }
 };
 
@@ -379,7 +417,15 @@ const walkingRoutes = [
     'assets/kitano_sannomiya_guide_2.png',
     'assets/kitano_sannomiya_guide_3.png',
     'assets/kitano_sannomiya_guide_4.png'
+  ]},
+  {key:'takenakaDaiku', files:[
+    'https://naosukenavi.github.io/shinkobe-bus-navi/assets/takenaka_daiku_guide_1.png',
+    'https://naosukenavi.github.io/shinkobe-bus-navi/assets/takenaka_daiku_guide_2.png',
+    'https://naosukenavi.github.io/shinkobe-bus-navi/assets/takenaka_daiku_guide_3.png',
+    'https://naosukenavi.github.io/shinkobe-bus-navi/assets/takenaka_daiku_guide_4.png',
+    'https://naosukenavi.github.io/shinkobe-bus-navi/assets/takenaka_daiku_guide_5.png'
   ]}
+
 ];
 function renderToilet(){
   const box=document.getElementById('toiletContent');
